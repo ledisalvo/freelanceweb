@@ -3230,6 +3230,12 @@ input, select, textarea {
 		letter-spacing: 0.05em;
 	}
 
+	@media screen and (max-width: 980px) {
+		.avatar-flags {
+			text-align: center;
+		}
+	}
+
 /* Language Toggle */
 
 	.lang-toggle {
