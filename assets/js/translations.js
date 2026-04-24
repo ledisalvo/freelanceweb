@@ -1,6 +1,6 @@
 window.TRANSLATIONS = {
   en: {
-    'header.h1':        '<strong>I am Leo</strong>, a <s>full stack developer</s> <strong>product builder</strong>.<br />Entrepreneur, self-taught person,<br />Visit my <a href="https://github.com/ledisalvo">GitHub</a> projects.',
+    'header.h1':        '<strong>I am Leo</strong>, a <s>full stack developer</s> <strong>product builder</strong>.<br />Entrepreneur and self-taught.<br />Visit my <a href="https://github.com/ledisalvo">GitHub</a> projects.',
     'skills.title':     'Developer Skills',
     'skills.subtitle':  '15+ years building web products.',
     'skills.legend':    'Full color = unlocked. Gray = on the roadmap.',
@@ -17,7 +17,7 @@ window.TRANSLATIONS = {
     'apps.cta_github':  'GitHub'
   },
   es: {
-    'header.h1':        '<strong>Soy Leo</strong>, un <s>full stack developer</s> <strong>product builder</strong>.<br />Emprendedor, autodidacta,<br />Visitá mis proyectos en <a href="https://github.com/ledisalvo">GitHub</a>.',
+    'header.h1':        '<strong>Soy Leo</strong>, un <s>full stack developer</s> <strong>product builder</strong>.<br />Emprendedor y autodidacta.<br />Visitá mis proyectos en <a href="https://github.com/ledisalvo">GitHub</a>.',
     'skills.title':     'Skills',
     'skills.subtitle':  '15+ años construyendo productos web.',
     'skills.legend':    'Color completo = desbloqueado. Gris = en el roadmap.',
