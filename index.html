@@ -16,24 +16,23 @@
     <!-- ✅ Autor -->
     <meta name="author" content="Leo" />
   
-    <!-- ✅ Icono de pestaña (favicon) -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
   
     <!-- ✅ Estilos -->
     <link rel="stylesheet" href="assets/css/main.css" />
   
-    <!-- ✅ Open Graph para compartir en redes sociales -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Leo - Full Stack Developer" />
     <meta property="og:description" content="Freelance developer specialized in React, .NET, and AI solutions." />
-    <meta property="og:image" content="https://tuweb.com/assets/images/preview.jpg" />
-    <meta property="og:url" content="https://tuweb.com" />
+    <meta property="og:image" content="https://ledisalvo.github.io/freelanceweb/images/avatar.jpg" />
+    <meta property="og:url" content="https://ledisalvo.github.io/freelanceweb/" />
     <meta property="og:type" content="website" />
-  
-    <!-- ✅ Twitter Card -->
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@PullCommitPush" />
     <meta name="twitter:title" content="Leo - Full Stack Developer" />
     <meta name="twitter:description" content="Freelance developer specialized in React, .NET, and AI solutions." />
-    <meta name="twitter:image" content="https://tuweb.com/assets/images/preview.jpg" />
+    <meta name="twitter:image" content="https://ledisalvo.github.io/freelanceweb/images/avatar.jpg" />
   </head>  
   <body class="is-preload">
     <!-- Header -->
@@ -42,73 +41,55 @@
         <a href="#" class="image avatar"
           ><img src="images/avatar.jpg" alt=""
         /></a>
-        <h1>
-          <strong>I am Leo</strong>, a full stack developer.<br />
+        <p class="avatar-flags">🇦🇷⭐️⭐️⭐️</p>
+        <h1 data-i18n="header.h1">
+          <strong>I am Leo</strong>, a <s>full stack developer</s> <strong>product builder</strong>.<br />
           Entrepreneur, self-taught person,<br />
-          father & gamer<br />
+          father &amp; gamer<br />
           Visit my <a href="https://github.com/ledisalvo">GitHub</a> projects.
         </h1>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+          <span>/</span>
+          <button class="lang-btn" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+        </div>
       </div>
     </header>
 
     <!-- Main -->
     <div id="main">
-      <!-- One -->
-      <section id="one">
+      <!-- Skills -->
+      <section id="skills">
         <header class="major">
-          <h2>Intro</h2>
+          <h2 data-i18n="skills.title">Developer Skills</h2>
         </header>
-        <p>
-          Hi! Let me introduce myself — I'm a software developer. I started my journey in 2010 working with Silverlight and AngularJS.
-          Throughout the years, I've constantly sought to improve my skills and expand my tech stack.
-          <br />
-          During the early days of quarantine, I launched a personal project: streaming on Twitch while coding a website and teaching programming (back then, Python). I also explored new programming languages live — everything was streamed in real time.
-          <br />
-          The project gained traction, reaching an audience of over 100 viewers per stream. However, in August 2020, my wife got pregnant, and in May 2021, I became a father. Naturally, I paused the project — priorities matter.
-          <br />
-          Even while it was on hold, I kept learning and working on personal projects using React. That's why today, I proudly consider myself a full stack developer.
-          <br />
-          <b>I’m always open to new challenges — if you're looking for a reliable, experienced developer to bring your ideas to life, feel free to get in touch.</b>
-        </p>
+        <p data-i18n="skills.subtitle">15+ years building web products.</p>
+        <p class="skills-legend" data-i18n="skills.legend">Full color = unlocked. Gray = on the roadmap.</p>
         <ul class="actions">
           <li>
-            <a target="_blank" href="./Resume English 2025.pdf" class="button"
-              >Download my Resume<span
-                class="icon solid fa-download"
-                style="margin-left: 20px"
-              ></span
-            ></a>
+            <a id="cv-btn" target="_blank" href="./Di Salvo - Resume English.pdf" class="button"><span data-i18n="skills.resume">Download Resume</span><span class="icon solid fa-download" style="margin-left: 14px"></span></a>
           </li>
         </ul>
+        <div id="skills-grid"></div>
       </section>
 
-      <!-- Two -->
-      <section id="two">
-        <h2>What I can do for you</h2>
-        <p>I’ve spent over 15 years working in software development, and I’ve worn many hats along the way. If you’re building something and need a reliable developer, here’s how I can help:</p>
-        <ul class="actions">
-          <li>💻<br /> Full stack web development (React, .NET, C#)</li>
-          <li>🧠<br /> AI/ML training data support & ethical evaluation</li>
-          <li>📦<br /> API design, database modeling and system architecture</li>
-          <li>🔍<br /> Debugging, refactoring and code review</li>
-          <li>🚀<br /> Deployment with GitHub Actions, Vercel or Render</li>
-          <li>📚<br /> Technical mentorship and content creation</li>
-        </ul>
+      <!-- Apps -->
+      <section id="apps">
+        <h2 data-i18n="apps.title">What I've built</h2>
+        <p data-i18n="apps.subtitle">Side projects and tools I've shipped.</p>
+        <div class="row gtr-50 app-grid">
+        </div>
       </section>
 
       <!-- Three -->
       <section id="three">
-        <h2>Get In Touch</h2>
-        <p>
-          Feel free to contact me, please complete the form below.
-          <br />
-          You will be redirect to Whatsapp App.
-        </p>
+        <h2 data-i18n="contact.title">Get In Touch</h2>
+        <p data-i18n="contact.subtitle">Feel free to contact me, please complete the form below.<br />You will be redirected to WhatsApp.</p>
         <div class="row">
           <div class="col-8 col-12-small">
             <div class="row gtr-uniform gtr-50">
               <div class="col-6 col-12-xsmall">
-                <input type="text" name="name" id="name" placeholder="Name" />
+                <input type="text" name="name" id="name" placeholder="Name" data-i18n-placeholder="contact.name" />
               </div>
               <div class="col-6 col-12-xsmall">
                 <input
@@ -116,6 +97,7 @@
                   name="email"
                   id="email"
                   placeholder="Email"
+                  data-i18n-placeholder="contact.email"
                 />
               </div>
               <div class="col-12">
@@ -123,12 +105,13 @@
                   name="message"
                   id="message"
                   placeholder="Message"
+                  data-i18n-placeholder="contact.message"
                   rows="4"
                 ></textarea>
               </div>
             </div>
             <ul class="actions" style="margin-top: 20px;">
-              <li><input type="submit" value="Send Message" onclick="sendMessage()" /></li>
+              <li><input type="submit" value="Send Message" data-i18n-value="contact.send" onclick="sendMessage()" /></li>
             </ul>
           </div>
           <div class="col-4 col-12-small">
@@ -156,6 +139,7 @@
           </div>
         </div>
       </section>
+    </div>
     <!-- Footer -->
     <footer id="footer">
       <div class="inner">
@@ -186,7 +170,7 @@
           </li>
         </ul>
         <ul class="copyright">
-          <li>&copy; 2025</li>
+          <li>&copy; 2026</li>
           <li>By Leonardo A. Di Salvo</li>
         </ul>
       </div>
@@ -200,6 +184,12 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 		<script src="assets/js/sendWhatsAppMessage.js"></script>
+		<script src="assets/js/translations.js"></script>
+		<script src="assets/js/skills-data.js"></script>
+		<script src="assets/js/skills.js"></script>
+		<script src="assets/js/apps-data.js"></script>
+		<script src="assets/js/apps.js"></script>
+		<script src="assets/js/i18n.js"></script>
   </body>
   <script>
     function sendMessage() {

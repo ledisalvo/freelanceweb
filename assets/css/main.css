@@ -2640,7 +2640,7 @@ input, select, textarea {
 
 		#header .image.avatar {
 			margin: 0 0 1em 0;
-			width: 6.25em;
+			width: 8.75em;
 		}
 
 /* Footer */
@@ -3219,3 +3219,190 @@ input, select, textarea {
 			}
 
 	}
+
+/* Avatar flags */
+
+	.avatar-flags {
+		font-size: 1.1em;
+		text-align: right;
+		margin: 0.4em 0 0 0;
+		line-height: 1;
+		letter-spacing: 0.05em;
+	}
+
+/* Language Toggle */
+
+	.lang-toggle {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		justify-content: flex-end;
+		margin-top: 1.75em;
+	}
+
+	.lang-btn {
+		background: none;
+		border: none;
+		color: rgba(255, 255, 255, 0.3);
+		font-family: inherit;
+		font-size: 0.65em;
+		letter-spacing: 0.12em;
+		cursor: pointer;
+		padding: 0;
+		-moz-transition: color 0.2s ease-in-out;
+		-webkit-transition: color 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out;
+	}
+
+		.lang-btn:hover,
+		.lang-btn.active {
+			color: #ffffff;
+		}
+
+	.lang-toggle span {
+		color: rgba(255, 255, 255, 0.15);
+		font-size: 0.65em;
+	}
+
+/* App Cards */
+
+	.app-card {
+		margin: 0 0 1em 0;
+	}
+
+	.app-thumb {
+		position: relative;
+		overflow: hidden;
+		margin: 0 0 1em 0;
+		border-radius: 4px;
+	}
+
+		.app-thumb img {
+			display: block;
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+		}
+
+	.app-status {
+		position: absolute;
+		top: 0.6em;
+		right: 0.6em;
+		padding: 0.2em 0.65em;
+		border-radius: 2em;
+		font-size: 0.6em;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+		.app-status.live  { background: #49bf9d; }
+		.app-status.beta  { background: #e0a740; }
+
+	.app-card h3 {
+		font-size: 1em;
+		margin: 0 0 0.3em 0;
+	}
+
+	.app-tagline {
+		font-size: 0.8em;
+		line-height: 1.5em;
+		color: #b2b2b2;
+		margin: 0 0 0.75em 0;
+	}
+
+	.app-tech-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+		margin: 0 0 0.85em 0;
+	}
+
+	.app-tech-tag {
+		font-size: 0.6em;
+		padding: 0.25em 0.6em;
+		background: #f7f7f7;
+		border: solid 1px #efefef;
+		border-radius: 3px;
+		color: #a2a2a2;
+		line-height: 1.5em;
+	}
+
+	.skills-legend {
+		font-size: 0.7em;
+		color: #c8c8c8;
+		margin: -1.25em 0 2em 0;
+	}
+
+/* Skills Badges */
+
+	.skills-section {
+		margin-bottom: 2.5em;
+	}
+
+	.skills-section h3 {
+		font-size: 0.7em;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: #c8c8c8;
+		margin-bottom: 1.1em;
+	}
+
+	.skills-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.1em;
+	}
+
+	.skill-badge {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.45em;
+		width: 68px;
+	}
+
+	.skill-icon {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5em;
+		color: #fff;
+		transition: transform 0.15s ease-in-out;
+	}
+
+		.skill-badge:hover .skill-icon {
+			transform: scale(1.1);
+		}
+
+		.skill-badge.unlocked .skill-icon {
+			background: #49bf9d;
+		}
+
+		.skill-badge.locked .skill-icon {
+			background: #ddd;
+		}
+
+		.skill-icon.skill-letter {
+			font-size: 0.72em;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+		}
+
+	.skill-name {
+		font-size: 0.58em;
+		text-align: center;
+		line-height: 1.3em;
+	}
+
+		.skill-badge.unlocked .skill-name {
+			color: #a2a2a2;
+		}
+
+		.skill-badge.locked .skill-name {
+			color: #d4d4d4;
+		}
