@@ -54,8 +54,8 @@ window.SITE_CONFIG = {
     { name: 'Hospital Británico', logo: 'images/empresas/hospital-britanico.png' },
     { name: 'Telecom',            logo: 'images/empresas/telecom.png' },
     { name: 'Grimoldi',           logo: 'images/empresas/grimoldi.png' },
-    { name: 'Telmex',             logo: null },
-    { name: 'Bistrosoft',         logo: null },
+    { name: 'Telmex',             logo: 'images/empresas/telmex.svg' },
+    { name: 'Bistrosoft',         logo: 'images/empresas/bistrosoft.png' },
   ],
 
   /* --- Metadatos --------------------------------------------------------- */
