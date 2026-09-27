@@ -49,11 +49,9 @@ se puede publicar algo roto sin darse cuenta.
 | Qué falta | Dónde se completa |
 |---|---|
 | Link de Cal.com o Calendly | `config.booking` |
-| URL del perfil de LinkedIn | `config.linkedin` |
-| URL pública de Festivy | `config.festivy.url` |
-| Captura de Festivy | `config.festivy.image` — sugerido `images/casos/festivy.webp`, 1600×1000 |
 | Foto nueva del hero | `config.heroImage` — sugerido `images/leo.webp`, 1000×1250, plano medio, luz natural |
-| Logos de las 6 empresas | `config.companies[].logo` — ver abajo |
+| Logo de Telmex (Bistrosoft queda en texto: su isotipo solo no se reconoce) | `config.companies[].logo` — ver abajo |
+| Logos en SVG oficial (los PNG actuales salen de avatares de LinkedIn de 100 px) | `images/empresas/` |
 | CV actualizado ES y EN | reemplazar los dos PDF de la raíz (los nombres están en `config.cv`) |
 
 ### Logos de empresas

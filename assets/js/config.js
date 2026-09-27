@@ -22,18 +22,14 @@ window.SITE_CONFIG = {
   email: 'ledisalvo@gmail.com',
 
   /* --- Redes ------------------------------------------------------------- */
-  // PENDIENTE: pegar la URL del perfil de LinkedIn.
-  // Ej: 'https://www.linkedin.com/in/leonardo-di-salvo/'
-  linkedin: 'PENDIENTE',
+  linkedin: 'https://www.linkedin.com/in/leonardo-di-salvo/',
   github: 'https://github.com/ledisalvo',
 
   /* --- Festivy (caso destacado) ------------------------------------------ */
   festivy: {
-    // PENDIENTE: URL pública de Festivy.
-    url: 'PENDIENTE',
-    // PENDIENTE: captura de Festivy. Dejar el placeholder hasta tenerla.
-    // Sugerido: WebP 1600x1000 en images/casos/festivy.webp
-    image: 'images/placeholders/festivy.svg',
+    url: 'https://festivy.app/',
+    // Captura de la landing (1440x900 @2x, reducida a 1600x1000).
+    image: 'images/casos/festivy.webp',
   },
 
   /* --- Foto del hero ----------------------------------------------------- */
@@ -48,15 +44,17 @@ window.SITE_CONFIG = {
   },
 
   /* --- Empresas (sección "Sistemas en los que trabajé") ------------------ */
-  // logo: ruta al SVG monocromo. Si es null, se muestra el nombre en texto
-  // con el mismo tratamiento visual (no rompe el layout).
+  // logo: ruta al SVG/PNG con fondo transparente. Si es null, se muestra el
+  // nombre en texto con el mismo tratamiento visual (no rompe el layout).
+  // Los PNG de images/empresas/ se derivaron de los avatares de LinkedIn
+  // (100px): reemplazar por SVG oficiales cuando estén.
   // PENDIENTE: verificar que el contrato permita usar los logos de los
   // clientes atendidos vía consultora (Grimoldi, Telmex, Monex).
   companies: [
-    { name: 'Santander',          logo: null },
-    { name: 'Hospital Británico', logo: null },
-    { name: 'Telecom',            logo: null },
-    { name: 'Grimoldi',           logo: null },
+    { name: 'Santander',          logo: 'images/empresas/santander.png' },
+    { name: 'Hospital Británico', logo: 'images/empresas/hospital-britanico.png' },
+    { name: 'Telecom',            logo: 'images/empresas/telecom.png' },
+    { name: 'Grimoldi',           logo: 'images/empresas/grimoldi.png' },
     { name: 'Telmex',             logo: null },
     { name: 'Bistrosoft',         logo: null },
   ],

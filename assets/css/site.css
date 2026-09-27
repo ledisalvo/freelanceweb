@@ -683,8 +683,12 @@ s {
    un gris uniforme y conserva la forma por el canal alfa; los logos tienen
    que venir en SVG/PNG con fondo transparente). */
 .companies__logo {
-  max-height: 1.75rem;
+  /* Alto y ancho máximos juntos equilibran el peso visual entre isotipos
+     cuadrados y wordmarks anchos. */
+  max-height: 2.25rem;
+  max-width: 7.5rem;
   width: auto;
+  height: auto;
   filter: grayscale(1) contrast(0) brightness(0.62);
 }
 
