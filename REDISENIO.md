@@ -37,7 +37,7 @@ assets/fonts/*.woff2           Archivo (titulares) + Public Sans (cuerpo)
 assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
 assets/js/site.js              i18n, links, logos, menú mobile
-images/og.png                  imagen Open Graph
+images/og-v2.png                  imagen Open Graph
 images/placeholders/           placeholders de foto y captura
 ```
 
@@ -89,8 +89,13 @@ Dos condiciones:
 
 ### Imagen Open Graph
 
-`images/og.png` (1200×630) se generó con la paleta y las tipografías del sistema,
-con la foto del hero a la derecha. Si cambia la foto o el copy, conviene regenerarla.
+`images/og-v2.png` (1200×630) se generó con la paleta y las tipografías del sistema,
+con la foto del hero a la derecha. LinkedIn y WhatsApp la muestran a ~500 px, así
+que lleva solo texto grande (nombre, titular, dominio): nada por debajo de ~32 px.
+
+Si se regenera, usar un nombre de archivo nuevo (`og-v3.png`, …) y actualizar
+`ogImage` y los metadatos: las redes cachean la imagen por URL. Después, pasar
+la URL por el Post Inspector de LinkedIn para refrescar su caché.
 
 ## Idiomas
 

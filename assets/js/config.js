@@ -60,5 +60,5 @@ window.SITE_CONFIG = {
 
   /* --- Metadatos --------------------------------------------------------- */
   siteUrl: 'https://leodisalvo.dev/',
-  ogImage: 'https://leodisalvo.dev/images/og.png',
+  ogImage: 'https://leodisalvo.dev/images/og-v2.png',
 };
