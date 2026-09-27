@@ -53,8 +53,6 @@ se puede publicar algo roto sin darse cuenta.
 
 | Qué falta | Dónde se completa |
 |---|---|
-| Logo de Telmex (Bistrosoft queda en texto: su isotipo solo no se reconoce) | `config.companies[].logo` — ver abajo |
-| Logos en SVG oficial (los PNG actuales salen de avatares de LinkedIn de 100 px) | `images/empresas/` |
 | CV actualizado ES y EN | reemplazar los dos PDF de la raíz (los nombres están en `config.cv`) |
 
 ### Logos de empresas
