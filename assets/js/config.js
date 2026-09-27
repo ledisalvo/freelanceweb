@@ -59,6 +59,6 @@ window.SITE_CONFIG = {
   ],
 
   /* --- Metadatos --------------------------------------------------------- */
-  siteUrl: 'https://ledisalvo.github.io/freelanceweb/',
-  ogImage: 'https://ledisalvo.github.io/freelanceweb/images/og.png',
+  siteUrl: 'https://leodisalvo.dev/',
+  ogImage: 'https://leodisalvo.dev/images/og.png',
 };
