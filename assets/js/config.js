@@ -45,15 +45,15 @@ window.SITE_CONFIG = {
   /* --- Empresas (sección "Sistemas en los que trabajé") ------------------ */
   // logo: ruta al SVG/PNG con fondo transparente. Si es null, se muestra el
   // nombre en texto con el mismo tratamiento visual (no rompe el layout).
-  // Los PNG de images/empresas/ se derivaron de los avatares de LinkedIn
-  // (100px): reemplazar por SVG oficiales cuando estén.
+  // Fuentes: Wikimedia Commons (Santander, Hospital Británico, Telecom,
+  // Telmex) y los sitios oficiales (Grimoldi, Bistrosoft).
   // PENDIENTE: verificar que el contrato permita usar los logos de los
   // clientes atendidos vía consultora (Grimoldi, Telmex, Monex).
   companies: [
-    { name: 'Santander',          logo: 'images/empresas/santander.png' },
-    { name: 'Hospital Británico', logo: 'images/empresas/hospital-britanico.png' },
-    { name: 'Telecom',            logo: 'images/empresas/telecom.png' },
-    { name: 'Grimoldi',           logo: 'images/empresas/grimoldi.png' },
+    { name: 'Santander',          logo: 'images/empresas/santander.svg' },
+    { name: 'Hospital Británico', logo: 'images/empresas/hospital-britanico.svg' },
+    { name: 'Telecom',            logo: 'images/empresas/telecom.svg' },
+    { name: 'Grimoldi',           logo: 'images/empresas/grimoldi.svg' },
     { name: 'Telmex',             logo: 'images/empresas/telmex.svg' },
     { name: 'Bistrosoft',         logo: 'images/empresas/bistrosoft.png' },
   ],
