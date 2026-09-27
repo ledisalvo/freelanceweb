@@ -33,9 +33,8 @@ window.SITE_CONFIG = {
   },
 
   /* --- Foto del hero ----------------------------------------------------- */
-  // PENDIENTE: foto nueva (plano medio, trabajando en el setup, luz natural).
-  // Sugerido: images/leo.webp (1000x1250) + images/leo.jpg de fallback.
-  heroImage: 'images/placeholders/hero.svg',
+  // Retrato 4:5 (820x1025). Si se cambia, mantener la proporción 4:5.
+  heroImage: 'images/leo.webp',
 
   /* --- CV / résumé por idioma -------------------------------------------- */
   cv: {

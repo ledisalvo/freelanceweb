@@ -29,7 +29,7 @@ window.TRANSLATIONS = {
     'hero.lead':        'Desarrollador .NET con más de 15 años en banca, salud, telecomunicaciones y retail. Trabajo freelance, con un flujo de desarrollo asistido por IA que acelera la entrega sin resignar calidad.',
     'hero.cta_primary': 'Hablemos de tu proyecto',
     'hero.cta_secondary': 'Ver casos',
-    'hero.photo_alt':   'Leonardo Di Salvo, desarrollador .NET, trabajando en su escritorio',
+    'hero.photo_alt':   'Retrato de Leonardo Di Salvo, desarrollador .NET freelance',
     'hero.stack_aria':  'Stack principal',
 
     /* --- Empresas -------------------------------------------------------- */
@@ -149,7 +149,7 @@ window.TRANSLATIONS = {
     'hero.lead':        '.NET developer with 15+ years in banking, healthcare, telecom and retail. I work freelance, with an AI-assisted development workflow that speeds up delivery without cutting corners on quality.',
     'hero.cta_primary': "Let's talk about your project",
     'hero.cta_secondary': 'See my work',
-    'hero.photo_alt':   'Leonardo Di Salvo, .NET developer, working at his desk',
+    'hero.photo_alt':   'Portrait of Leonardo Di Salvo, freelance .NET developer',
     'hero.stack_aria':  'Core stack',
 
     /* --- Companies ------------------------------------------------------- */

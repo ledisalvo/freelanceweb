@@ -616,10 +616,11 @@ s {
   margin: 0;
 }
 
+/* Retrato 4:5 siempre: en mobile como tarjeta acotada (un recorte apaisado
+   de un primer plano corta pelo y mentón); en desktop ocupa la columna. */
 .hero__figure img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  max-height: 20rem;
+  width: min(100%, 17rem);
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--radius-md);
   background: var(--color-bg-alt);
@@ -627,8 +628,7 @@ s {
 
 @media (width >= 60rem) {
   .hero__figure img {
-    aspect-ratio: 4 / 5;
-    max-height: none;
+    width: 100%;
   }
 }
 

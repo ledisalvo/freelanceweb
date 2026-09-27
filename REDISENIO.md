@@ -53,7 +53,6 @@ se puede publicar algo roto sin darse cuenta.
 
 | Qué falta | Dónde se completa |
 |---|---|
-| Foto nueva del hero | `config.heroImage` — sugerido `images/leo.webp`, 1000×1250, plano medio, luz natural |
 | Logo de Telmex (Bistrosoft queda en texto: su isotipo solo no se reconoce) | `config.companies[].logo` — ver abajo |
 | Logos en SVG oficial (los PNG actuales salen de avatares de LinkedIn de 100 px) | `images/empresas/` |
 | CV actualizado ES y EN | reemplazar los dos PDF de la raíz (los nombres están en `config.cv`) |
@@ -76,7 +75,7 @@ Dos condiciones:
 ### Imagen Open Graph
 
 `images/og.png` (1200×630) se generó con la paleta y las tipografías del sistema,
-sin foto. Cuando esté la foto del hero conviene regenerarla incluyéndola.
+con la foto del hero a la derecha. Si cambia la foto o el copy, conviene regenerarla.
 
 ## Idiomas
 
