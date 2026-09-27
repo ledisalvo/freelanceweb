@@ -1,207 +1,453 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  
-    <!-- ✅ Título claro y con palabras clave -->
-    <title>Leo - Full Stack Developer | React, C#, .NET & AI Enthusiast</title>
-  
-    <!-- ✅ Descripción meta para buscadores y redes sociales -->
-    <meta name="description" content="I’m Leo, a Full Stack Developer with 15+ years of experience in React, .NET and AI. Let’s build something amazing together." />
-  
-    <!-- ✅ Palabras clave relacionadas -->
-    <meta name="keywords" content="Full Stack Developer, React, .NET, C#, AI, Freelance Developer, Argentina, Remote Work" />
-  
-    <!-- ✅ Autor -->
-    <meta name="author" content="Leo" />
-  
-  
-    <!-- ✅ Estilos -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-  
-    <!-- Open Graph -->
-    <meta property="og:title" content="Leo - Full Stack Developer" />
-    <meta property="og:description" content="Freelance developer specialized in React, .NET, and AI solutions." />
-    <meta property="og:image" content="https://ledisalvo.github.io/freelanceweb/images/avatar.jpg" />
-    <meta property="og:url" content="https://ledisalvo.github.io/freelanceweb/" />
-    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Twitter Card -->
+    <title>Leonardo Di Salvo · Desarrollador .NET Senior freelance</title>
+    <meta
+      name="description"
+      content="Modernizo sistemas legacy y construyo productos SaaS en .NET, de la idea a producción. Más de 15 años en banca, salud, telecomunicaciones y retail."
+    />
+    <meta name="author" content="Leonardo A. Di Salvo" />
+    <link rel="canonical" href="https://ledisalvo.github.io/freelanceweb/" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Leonardo Di Salvo" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Leonardo Di Salvo · Desarrollador .NET Senior freelance" />
+    <meta
+      property="og:description"
+      content="Modernizo sistemas legacy y construyo productos SaaS en .NET, de la idea a producción. Más de 15 años en banca, salud, telecomunicaciones y retail."
+    />
+    <meta property="og:url" content="https://ledisalvo.github.io/freelanceweb/" />
+    <meta property="og:image" content="https://ledisalvo.github.io/freelanceweb/images/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@PullCommitPush" />
-    <meta name="twitter:title" content="Leo - Full Stack Developer" />
-    <meta name="twitter:description" content="Freelance developer specialized in React, .NET, and AI solutions." />
-    <meta name="twitter:image" content="https://ledisalvo.github.io/freelanceweb/images/avatar.jpg" />
-  </head>  
-  <body class="is-preload">
-    <!-- Header -->
-    <header id="header">
-      <div class="inner">
-        <a href="#" class="image avatar"
-          ><img src="images/avatar.jpg" alt=""
-        /></a>
-        <p class="avatar-flags">🇦🇷⭐️⭐️⭐️</p>
-        <h1 data-i18n="header.h1">
-          <strong>I am Leo</strong>, a <s>full stack developer</s> <strong>product builder</strong>.<br />
-          Entrepreneur, self-taught person,<br />
-          father &amp; gamer<br />
-          Visit my <a href="https://github.com/ledisalvo">GitHub</a> projects.
-        </h1>
-        <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="en" onclick="i18n.setLang('en')">EN</button>
-          <span>/</span>
-          <button class="lang-btn" data-lang="es" onclick="i18n.setLang('es')">ES</button>
-        </div>
-        <div class="cafecito">
-          <a href='https://cafecito.app/leythodev' rel='noopener' target='_blank'>
-            <img srcset='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt='Invitame un café en cafecito.app' />
-          </a>
-        </div>
+    <meta name="twitter:title" content="Leonardo Di Salvo · Desarrollador .NET Senior freelance" />
+    <meta
+      name="twitter:description"
+      content="Modernizo sistemas legacy y construyo productos SaaS en .NET, de la idea a producción. Más de 15 años en banca, salud, telecomunicaciones y retail."
+    />
+    <meta name="twitter:image" content="https://ledisalvo.github.io/freelanceweb/images/og.png" />
+
+    <!-- Tipografías self-hosted: preload real de los dos woff2 críticos -->
+    <link
+      rel="preload"
+      href="assets/fonts/public-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main" data-i18n="nav.skip">Ir al contenido</a>
+
+    <!-- =====================================================  NAV  ===== -->
+    <header class="site-header" id="top">
+      <div class="wrap site-header__inner">
+        <a class="wordmark" href="#top">Leonardo Di&nbsp;Salvo</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-i18n-aria-label="nav.menu_open"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-i18n-aria-label="nav.aria" aria-label="Navegación principal">
+          <ul class="site-nav__list">
+            <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+            <li><a href="#casos" data-i18n="nav.work">Casos</a></li>
+            <li><a href="#como-trabajo" data-i18n="nav.how">Cómo trabajo</a></li>
+            <li><a href="#trayectoria" data-i18n="nav.experience">Trayectoria</a></li>
+          </ul>
+          <a class="btn btn--sm btn--accent site-nav__cta" href="#contacto" data-i18n="nav.contact">Contacto</a>
+          <div
+            class="lang-switch"
+            role="group"
+            data-i18n-aria-label="nav.lang_aria"
+            aria-label="Seleccionar idioma"
+          >
+            <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </nav>
       </div>
     </header>
 
-    <!-- Main -->
-    <div id="main">
-      <!-- Skills -->
-      <section id="skills">
-        <header class="major">
-          <h2 data-i18n="skills.title">Developer Skills</h2>
-        </header>
-        <p data-i18n="skills.subtitle">15+ years building web products.</p>
-        <p class="skills-legend" data-i18n="skills.legend">Full color = unlocked. Gray = on the roadmap.</p>
-        <ul class="actions">
-          <li>
-            <a id="cv-btn" target="_blank" href="./Di Salvo - Resume English.pdf" class="button"><span data-i18n="skills.resume">Download Resume</span><span class="icon solid fa-download" style="margin-left: 14px"></span></a>
-          </li>
-        </ul>
-        <div id="skills-grid"></div>
-      </section>
-
-      <!-- Apps -->
-      <section id="apps">
-        <h2 data-i18n="apps.title">What I've built</h2>
-        <p data-i18n="apps.subtitle">Side projects and tools I've shipped.</p>
-        <div class="row gtr-50 app-grid">
-        </div>
-      </section>
-
-      <!-- Three -->
-      <section id="three">
-        <h2 data-i18n="contact.title">Get In Touch</h2>
-        <p data-i18n="contact.subtitle">Feel free to contact me, please complete the form below.<br />You will be redirected to WhatsApp.</p>
-        <div class="row">
-          <div class="col-8 col-12-small">
-            <div class="row gtr-uniform gtr-50">
-              <div class="col-6 col-12-xsmall">
-                <input type="text" name="name" id="name" placeholder="Name" data-i18n-placeholder="contact.name" />
-              </div>
-              <div class="col-6 col-12-xsmall">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  data-i18n-placeholder="contact.email"
-                />
-              </div>
-              <div class="col-12">
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder="Message"
-                  data-i18n-placeholder="contact.message"
-                  rows="4"
-                ></textarea>
-              </div>
+    <main id="main">
+      <!-- ===================================================  HERO  ===== -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="wrap hero__inner">
+          <div class="hero__body">
+            <p class="kicker" data-i18n="hero.kicker">
+              <s>full stack developer</s> <span class="kicker-arrow" aria-hidden="true">&rarr;</span>
+              <b>product builder</b> <span class="kicker-loc"><span class="kicker-sep">·</span> Buenos Aires, AR</span>
+            </p>
+            <h1 class="hero__title" id="hero-title" data-i18n="hero.title">
+              Modernizo sistemas legacy y construyo productos SaaS, de la idea a producción.
+            </h1>
+            <p class="lead" data-i18n="hero.lead">
+              Desarrollador .NET con más de 15 años en banca, salud, telecomunicaciones y retail. Trabajo
+              freelance, con un flujo de desarrollo asistido por IA que acelera la entrega sin resignar
+              calidad.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--accent" href="#contacto" data-i18n="hero.cta_primary"
+                >Hablemos de tu proyecto</a
+              >
+              <a class="btn btn--ghost" href="#casos" data-i18n="hero.cta_secondary">Ver casos</a>
             </div>
-            <ul class="actions" style="margin-top: 20px;">
-              <li><input type="submit" value="Send Message" data-i18n-value="contact.send" onclick="sendMessage()" /></li>
+            <ul class="chips" data-i18n-aria-label="hero.stack_aria" aria-label="Stack principal">
+              <li>C# / .NET</li>
+              <li>ASP.NET Core</li>
+              <li>React</li>
+              <li>PostgreSQL</li>
+              <li>SQL Server</li>
             </ul>
           </div>
-          <div class="col-4 col-12-small">
-            <ul class="labeled-icons">
+
+          <figure class="hero__figure">
+            <img
+              data-img="hero"
+              src="images/placeholders/hero.svg"
+              width="1000"
+              height="1250"
+              alt="Leonardo Di Salvo, desarrollador .NET, trabajando en su escritorio"
+              data-i18n-alt="hero.photo_alt"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ==============================================  EMPRESAS  ===== -->
+      <section class="companies" id="empresas" aria-labelledby="companies-label">
+        <div class="wrap">
+          <h2 class="eyebrow" id="companies-label" data-i18n="companies.label">
+            Sistemas en los que trabajé
+          </h2>
+          <ul class="companies__grid" data-companies>
+            <li><span>Santander</span></li>
+            <li><span>Hospital Británico</span></li>
+            <li><span>Telecom</span></li>
+            <li><span>Grimoldi</span></li>
+            <li><span>Telmex</span></li>
+            <li><span>Bistrosoft</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==============================================  SERVICIOS  ===== -->
+      <section class="section" id="servicios" aria-labelledby="servicios-title">
+        <div class="wrap">
+          <header class="section__head">
+            <h2 class="section__title" id="servicios-title" data-i18n="services.title">
+              En qué te puedo ayudar
+            </h2>
+            <p class="section__lead" data-i18n="services.lead">
+              Proyectos cerrados o dedicación parcial. Me sumo solo o junto a tu equipo.
+            </p>
+          </header>
+
+          <ul class="cards cards--services">
+            <li class="card">
+              <h3 class="card__title" data-i18n="services.1_title">Modernización de sistemas legacy.</h3>
+              <p data-i18n="services.1_body">
+                De .NET Framework y ASP.NET a .NET moderno, sin frenar la operación del negocio.
+              </p>
+            </li>
+            <li class="card">
+              <h3 class="card__title" data-i18n="services.2_title">Performance y estabilidad.</h3>
+              <p data-i18n="services.2_body">
+                Diagnóstico y solución de cuellos de botella en módulos críticos: transacciones, queries,
+                concurrencia.
+              </p>
+            </li>
+            <li class="card">
+              <h3 class="card__title" data-i18n="services.3_title">Productos SaaS y MVPs.</h3>
+              <p data-i18n="services.3_body">
+                De la idea a producción, con un backend sólido: multi-tenant, pagos, APIs limpias y testeadas.
+              </p>
+            </li>
+            <li class="card">
+              <h3 class="card__title" data-i18n="services.4_title">IA aplicada a procesos.</h3>
+              <p data-i18n="services.4_body">
+                Extracción de datos de documentos y automatización de tareas manuales dentro de tus sistemas.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =================================================  CASOS  ===== -->
+      <section class="section section--alt" id="casos" aria-labelledby="casos-title">
+        <div class="wrap">
+          <header class="section__head">
+            <h2 class="section__title" id="casos-title" data-i18n="cases.title">Casos</h2>
+          </header>
+
+          <!-- Destacado: Festivy -->
+          <article class="feature">
+            <div class="feature__body">
+              <p class="eyebrow eyebrow--on-dark" data-i18n="cases.festivy_tag">Producto propio · 2026</p>
+              <h3 class="feature__title">Festivy</h3>
+              <p class="feature__text" data-i18n="cases.festivy_body">
+                Plataforma para crear y gestionar eventos digitales. Diseñada, construida y lanzada de punta a
+                punta, hoy evolucionando hacia un modelo B2B para organizadores de eventos.
+              </p>
+              <ul class="chips chips--on-dark">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Supabase</li>
+              </ul>
+              <p class="feature__actions">
+                <a class="btn btn--light" data-link="festivy" href="#" data-i18n="cases.festivy_cta"
+                  >Ver Festivy</a
+                >
+              </p>
+            </div>
+            <figure class="feature__figure">
+              <img
+                data-img="festivy"
+                src="images/placeholders/festivy.svg"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                alt="Captura de la plataforma Festivy"
+                data-i18n-alt="cases.festivy_alt"
+              />
+            </figure>
+          </article>
+
+          <!-- Casos de cliente -->
+          <div class="cases">
+            <article class="case">
+              <p class="eyebrow" data-i18n="cases.hb_sector">Hospital Británico · Salud</p>
+              <h3 class="case__title" data-i18n="cases.hb_title">
+                Migración del sistema de pagos a profesionales médicos
+              </h3>
+              <dl class="case__detail">
+                <dt data-i18n="cases.label_problem">Problema</dt>
+                <dd data-i18n="cases.hb_problem">
+                  Sistema crítico en ASP.NET legacy, difícil de mantener y con problemas de performance.
+                </dd>
+                <dt data-i18n="cases.label_solution">Solución</dt>
+                <dd data-i18n="cases.hb_solution">
+                  Migración a .NET Core, React y SQL Server, más tuning de stored procedures críticos. Como
+                  único desarrollador.
+                </dd>
+                <dt data-i18n="cases.label_outcome">Resultado</dt>
+                <dd data-i18n="cases.hb_outcome">
+                  Transición sin impacto en la operación y un sistema mantenible a futuro.
+                </dd>
+              </dl>
+            </article>
+
+            <article class="case">
+              <p class="eyebrow" data-i18n="cases.gr_sector">Grimoldi · Retail</p>
+              <h3 class="case__title" data-i18n="cases.gr_title">
+                Cuello de botella en el módulo de devoluciones
+              </h3>
+              <dl class="case__detail">
+                <dt data-i18n="cases.label_problem">Problema</dt>
+                <dd data-i18n="cases.gr_problem">
+                  Transacciones abiertas a nivel controller bloqueaban la base en un módulo de alta
+                  concurrencia (.NET Framework 4.7).
+                </dd>
+                <dt data-i18n="cases.label_solution">Solución</dt>
+                <dd data-i18n="cases.gr_solution">
+                  Rediseño del manejo transaccional y de la lógica interna, más limpieza del código.
+                </dd>
+                <dt data-i18n="cases.label_outcome">Resultado</dt>
+                <dd data-i18n="cases.gr_outcome">
+                  Mejor performance y menos bugs en un flujo directamente ligado a ingresos.
+                </dd>
+              </dl>
+            </article>
+          </div>
+
+          <!-- Otros productos -->
+          <div class="others">
+            <h3 class="others__title" data-i18n="cases.others_title">Otros productos</h3>
+            <ul class="others__list">
               <li>
-                <h3 class="icon solid fa-home">
-                  <span class="label">Address</span>
-                </h3>
-                Buenos Aires,<br />
-                Argentina
+                <strong>Puestito</strong>
+                <span data-i18n="cases.puestito">ecommerce SaaS multi-tenant (.NET 10, PostgreSQL)</span>
               </li>
               <li>
-                <h3 class="icon solid fa-mobile-alt">
-                  <span class="label">Phone</span>
-                </h3>
-                +54 11 5581 5805
-              </li>
-              <li>
-                <h3 class="icon solid fa-envelope">
-                  <span class="label">Email</span>
-                </h3>
-                <a href="#">ledisalvo@gmail.com</a>
+                <strong>AdminConsorcio</strong>
+                <span data-i18n="cases.adminconsorcio"
+                  >gestión para administradores de consorcios (.NET 10, React 19)</span
+                >
               </li>
             </ul>
           </div>
         </div>
       </section>
-    </div>
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="inner">
-        <ul class="icons">
-          <li>
+
+      <!-- ==========================================  CÓMO TRABAJO  ===== -->
+      <section class="section section--dark" id="como-trabajo" aria-labelledby="como-title">
+        <div class="wrap">
+          <header class="section__head">
+            <h2 class="section__title" id="como-title" data-i18n="how.title">Cómo trabajo</h2>
+            <p class="section__lead" data-i18n="how.lead">
+              Uso un equipo de agentes de IA especializados (arquitectura, testing, QA) que orquesto a partir
+              de especificaciones claras. Resultado: más velocidad, con las decisiones de diseño y la calidad
+              bajo mi control.
+            </p>
+          </header>
+
+          <ol class="steps">
+            <li class="step">
+              <span class="step__num" aria-hidden="true">01</span>
+              <h3 class="step__title" data-i18n="how.1_title">Relevamiento.</h3>
+              <p data-i18n="how.1_body">
+                Entiendo el negocio y el problema real antes de tocar una línea de código.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num" aria-hidden="true">02</span>
+              <h3 class="step__title" data-i18n="how.2_title">Especificación.</h3>
+              <p data-i18n="how.2_body">
+                Alcance, tiempos y criterios de aceptación acordados y por escrito.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num" aria-hidden="true">03</span>
+              <h3 class="step__title" data-i18n="how.3_title">Desarrollo.</h3>
+              <p data-i18n="how.3_body">
+                Clean Architecture, tests automatizados y agentes de IA para acelerar sin perder calidad.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step__num" aria-hidden="true">04</span>
+              <h3 class="step__title" data-i18n="how.4_title">Producción.</h3>
+              <p data-i18n="how.4_body">Acompaño cada entrega hasta el deploy, y después.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===========================================  TRAYECTORIA  ===== -->
+      <section class="section" id="trayectoria" aria-labelledby="trayectoria-title">
+        <div class="wrap">
+          <header class="section__head section__head--row">
+            <h2 class="section__title" id="trayectoria-title" data-i18n="exp.title">Trayectoria</h2>
+            <a class="link-cv" data-link="cv" href="Di Salvo - CV Español.pdf" target="_blank" rel="noopener">
+              <span data-i18n="exp.cv">Descargar CV (PDF)</span>
+            </a>
+          </header>
+
+          <ul class="timeline" data-i18n-aria-label="exp.aria" aria-label="Trayectoria profesional">
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.1_period">2026 – hoy</span>
+              <span class="timeline__company" data-i18n="exp.1_company">Independiente</span>
+              <span class="timeline__body" data-i18n="exp.1_body">Freelance y producto propio (Festivy)</span>
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.2_period">2026</span>
+              <span class="timeline__company" data-i18n="exp.2_company">Bistrosoft</span>
+              <span class="timeline__body" data-i18n="exp.2_body">Entrega con agentes de IA, .NET + Vue</span>
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.3_period">2025 – 2026</span>
+              <span class="timeline__company" data-i18n="exp.3_company">Grimoldi</span>
+              <span class="timeline__body" data-i18n="exp.3_body"
+                >Refactor de módulo crítico, .NET Framework</span
+              >
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.4_period">2023 – 2025</span>
+              <span class="timeline__company" data-i18n="exp.4_company">Telmex · Monex</span>
+              <span class="timeline__body" data-i18n="exp.4_body"
+                >Plataforma low-code, Blazor, SignalR, IA</span
+              >
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.5_period">2020 – 2022</span>
+              <span class="timeline__company" data-i18n="exp.5_company">Hospital Británico</span>
+              <span class="timeline__body" data-i18n="exp.5_body">Migración a .NET Core y React</span>
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.6_period">2014 – 2020</span>
+              <span class="timeline__company" data-i18n="exp.6_company">Grupo Santander</span>
+              <span class="timeline__body" data-i18n="exp.6_body"
+                >Plataforma de gestión de clientes, riesgo crediticio</span
+              >
+            </li>
+            <li class="timeline__row">
+              <span class="timeline__period" data-i18n="exp.7_period">2010 – 2014</span>
+              <span class="timeline__company" data-i18n="exp.7_company">Telecom</span>
+              <span class="timeline__body" data-i18n="exp.7_body"
+                >Gestión de órdenes de trabajo, migración de Silverlight</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==============================================  CONTACTO  ===== -->
+      <section class="contact" id="contacto" aria-labelledby="contacto-title">
+        <div class="wrap contact__inner">
+          <h2 class="contact__title" id="contacto-title" data-i18n="contact.title">
+            ¿Un sistema que necesita una segunda vida, o un producto por construir?
+          </h2>
+          <div class="contact__actions">
             <a
-              href="https://twitter.com/PullCommitPush"
-              class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
+              class="btn btn--light btn--lg"
+              data-link="booking"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              data-i18n="contact.cta_book"
+              >Agendá una llamada de 30 min</a
             >
-          </li>
-          <li>
-            <a href="https://github.com/ledisalvo" class="icon brands fa-github"
-              ><span class="label">Github</span></a
+            <a class="btn btn--outline-light" data-link="whatsapp" href="#" target="_blank" rel="noopener"
+              ><span data-i18n="contact.cta_wa">Escribime por WhatsApp</span></a
             >
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/leytho.dev"
-              class="icon brands fa-instagram"
-              ><span class="label">Instagram</span></a
-            >
-          </li>
-          <li>
-            <a href="mailto:ledisalvo@gmail.com" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-        <ul class="copyright">
-          <li>&copy; 2026</li>
-          <li>By Leonardo A. Di Salvo</li>
-        </ul>
+            <a class="btn btn--outline-light" data-link="email" href="#">ledisalvo@gmail.com</a>
+          </div>
+          <p class="contact__micro" data-i18n="contact.micro">
+            Sin compromiso. Contame qué necesitás y vemos si te puedo ayudar.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================  FOOTER  ===== -->
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <p class="site-footer__copy" data-i18n="footer.copy">
+          © 2026 Leonardo A. Di Salvo · Buenos Aires
+        </p>
+        <nav class="site-footer__links" data-i18n-aria-label="footer.aria" aria-label="Enlaces y redes">
+          <a data-link="linkedin" href="#">LinkedIn</a>
+          <a data-link="github" href="https://github.com/ledisalvo">GitHub</a>
+        </nav>
       </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-		<script src="assets/js/sendWhatsAppMessage.js"></script>
-		<script src="assets/js/translations.js"></script>
-		<script src="assets/js/skills-data.js"></script>
-		<script src="assets/js/skills.js"></script>
-		<script src="assets/js/apps-data.js"></script>
-		<script src="assets/js/apps.js"></script>
-		<script src="assets/js/i18n.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/site.js"></script>
   </body>
-  <script>
-    function sendMessage() {
-      const name = document.getElementById('name');
-      const message = document.getElementById('message');
-      const email = document.getElementById('email');
-      window.open(`https://wa.me/541155815805?text=Hi Leo! I'm ${name.value}. ${message.value}. My Email is: ${email.value}. Regards!`, '_blank');
-    }
-  </script>
 </html>

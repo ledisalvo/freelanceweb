@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="presentation">
+  <!-- PLACEHOLDER: reemplazar por la captura real (ver festivy.image en assets/js/config.js) -->
+  <rect width="1600" height="1000" fill="#1c212b"/>
+  <rect x="14" y="14" width="1572" height="972" fill="none" stroke="#3b434f" stroke-width="3" stroke-dasharray="18 14"/>
+  <g fill="none" stroke="#5f6a7a" stroke-width="3">
+    <rect x="360" y="300" width="880" height="400" rx="10"/>
+    <path d="M360 372h880"/>
+    <path d="M440 470h300M440 530h480M440 590h220"/>
+  </g>
+  <g fill="#5f6a7a">
+    <circle cx="404" cy="336" r="9"/>
+    <circle cx="436" cy="336" r="9"/>
+    <circle cx="468" cy="336" r="9"/>
+  </g>
+  <g font-family="'Public Sans','Segoe UI',Helvetica,Arial,sans-serif" text-anchor="middle">
+    <text x="800" y="800" font-size="40" font-weight="600" letter-spacing="6" fill="#9aa3b2">CAPTURA DE FESTIVY PENDIENTE</text>
+    <text x="800" y="852" font-size="26" fill="#6f7a8a">Sugerido: images/casos/festivy.webp · 1600 × 1000</text>
+  </g>
+</svg>

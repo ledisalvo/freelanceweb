@@ -1,0 +1,1130 @@
+/* ===========================================================================
+   SISTEMA VISUAL
+   Paleta Carbón / Acero / Niebla con un único acento (azul de plano técnico).
+   Todo el look del sitio sale de estos tokens: cambiar un hex acá lo cambia
+   en todo el sitio, sin tocar ninguna regla de más abajo.
+   Contraste verificado AA en todos los pares de texto en uso.
+   =========================================================================== */
+
+:root {
+  /* --- Colores base ---------------------------------------------------- */
+  --color-carbon: #12151b; /* texto principal en claro / fondo de secciones oscuras */
+  --color-blanco-frio: #fafbfc; /* fondo base / texto sobre oscuro */
+  --color-niebla: #edf0f4; /* fondo alternativo de sección */
+  --color-acero: #5a6472; /* texto secundario en claro */
+  --color-acero-claro: #9aa3b2; /* texto secundario sobre oscuro */
+  --color-linea: #cbd1db; /* bordes y divisores */
+  --color-accent: #2a4a7f; /* acento único */
+  --color-accent-hover: #21395f;
+
+  /* --- Tokens semánticos ----------------------------------------------- */
+  --color-bg: var(--color-blanco-frio);
+  --color-bg-alt: var(--color-niebla);
+  --color-bg-dark: var(--color-carbon);
+  --color-text: var(--color-carbon);
+  --color-text-secondary: var(--color-acero);
+  --color-border: var(--color-linea);
+  --color-text-on-accent: var(--color-blanco-frio);
+  --color-text-on-accent-secondary: #c9d6e8;
+  --color-text-on-dark: var(--color-blanco-frio);
+  --color-text-secondary-on-dark: var(--color-acero-claro);
+
+  /* El acento no llega a 3:1 sobre el carbón, así que el anillo de foco
+     cambia de color dentro de los bloques oscuros y del bloque de acento. */
+  --color-focus-ring: var(--color-accent);
+
+  /* --- Tipografía ------------------------------------------------------ */
+  --font-display: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: 'Public Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --text-h1-size: clamp(2.25rem, 1.667rem + 2.59vw, 4rem);
+  --text-h2-size: clamp(1.75rem, 1.417rem + 1.48vw, 2.75rem);
+  --text-h3-size: clamp(1.25rem, 1.125rem + 0.56vw, 1.625rem);
+  --text-body-size: 1rem;
+  --text-body-sm-size: 0.875rem;
+  --text-label-size: 0.75rem;
+  --text-button-size: 1rem;
+
+  /* --- Espaciado (grilla de 4px) --------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* --- Bordes y foco --------------------------------------------------- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --border-hairline: 1px;
+  --border-focus: 2px;
+  --focus-ring-offset: 2px;
+
+  /* --- Layout ---------------------------------------------------------- */
+  --wrap-max: 72rem; /* 1152px */
+  --wrap-pad: clamp(1.25rem, 4vw, 3rem);
+  --header-h: 4rem;
+  --tap-min: 2.75rem; /* 44px */
+
+  /* --- Motion (único momento animado: entrada del hero) ---------------- */
+  --motion-duration: 600ms;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-offset: 12px;
+}
+
+/* ===========================================================================
+   RESET Y BASE
+   =========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+s {
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
+}
+
+/* Foco visible propio, nunca el default del browser ---------------------- */
+:focus-visible {
+  outline: var(--border-focus) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* Dentro de bloques oscuros y del bloque de acento el anillo se aclara,
+   porque el acento no alcanza 3:1 contra el carbón. */
+.section--dark,
+.feature,
+.contact {
+  --color-focus-ring: var(--color-text-on-dark);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-2);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline-color: var(--color-carbon);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap-max);
+  margin-inline: auto;
+  padding-inline: var(--wrap-pad);
+}
+
+/* ===========================================================================
+   PRIMITIVAS
+   =========================================================================== */
+
+/* --- Eyebrow / label (peso + tracking, no otra familia) ----------------- */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label-size);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.eyebrow--on-dark {
+  color: var(--color-text-secondary-on-dark);
+}
+
+/* --- Botones (sin flechas, sin íconos decorativos) ---------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-hairline) solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-button-size);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.btn--sm {
+  min-height: var(--tap-min);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-sm-size);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-6);
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.btn--accent:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--ghost {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-text);
+}
+
+.btn--light {
+  background: var(--color-blanco-frio);
+  color: var(--color-carbon);
+}
+
+.btn--light:hover {
+  background: var(--color-niebla);
+}
+
+.btn--outline-light {
+  border-color: rgb(250 251 252 / 45%);
+  color: var(--color-text-on-dark);
+}
+
+.btn--outline-light:hover {
+  border-color: var(--color-text-on-dark);
+}
+
+/* --- Placeholder: link todavía no configurado --------------------------- */
+.is-pending {
+  cursor: default;
+  border-style: dashed;
+  border-color: currentColor;
+  opacity: 0.8;
+}
+
+.btn.is-pending {
+  background: transparent;
+  color: inherit;
+}
+
+.pending-note {
+  margin-inline-start: 0.4em;
+  font-size: var(--text-label-size);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* --- Chips de stack ----------------------------------------------------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chips li {
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-hairline) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.chips--on-dark li {
+  border-color: rgb(154 163 178 / 45%);
+  color: var(--color-text-secondary-on-dark);
+}
+
+/* --- Secciones ---------------------------------------------------------- */
+.section {
+  padding-block: clamp(var(--space-8), 8vw, var(--space-10));
+  scroll-margin-top: var(--header-h);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section--dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.section__head {
+  max-width: 44rem;
+  margin-bottom: clamp(var(--space-6), 4vw, var(--space-8));
+}
+
+.section__title {
+  font-size: var(--text-h2-size);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.section__lead {
+  margin-top: var(--space-4);
+  max-width: 40rem;
+  color: var(--color-text-secondary);
+}
+
+.section--dark .section__lead {
+  color: var(--color-text-secondary-on-dark);
+}
+
+.section__head--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: none;
+}
+
+/* ===========================================================================
+   HEADER / NAV
+   =========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg);
+  border-bottom: var(--border-hairline) solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-h);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-block: var(--space-2);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+
+.site-nav__list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-size: var(--text-body-sm-size);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.site-nav__list a:hover {
+  color: var(--color-text);
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lang-btn {
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-label-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.lang-btn:hover {
+  color: var(--color-text);
+}
+
+.lang-btn.is-active {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin-right: calc(var(--space-2) * -1);
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: '';
+  position: relative;
+}
+
+.nav-toggle__bars::before {
+  top: -6px;
+}
+
+.nav-toggle__bars::after {
+  top: 4px;
+}
+
+/* Menú colapsado en mobile ---------------------------------------------- */
+@media (width < 60rem) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--wrap-pad) var(--space-6);
+    background: var(--color-bg);
+    border-bottom: var(--border-hairline) solid var(--color-border);
+  }
+
+  .nav-is-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-nav__list a {
+    padding-block: var(--space-2);
+    font-size: var(--text-body-size);
+    color: var(--color-text);
+    border-bottom: var(--border-hairline) solid var(--color-border);
+  }
+
+  .site-nav__cta {
+    margin-top: var(--space-3);
+  }
+
+  .lang-switch {
+    justify-content: flex-start;
+  }
+}
+
+/* ===========================================================================
+   HERO
+   =========================================================================== */
+
+.hero {
+  padding-block: clamp(var(--space-7), 7vw, var(--space-9));
+  scroll-margin-top: var(--header-h);
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(var(--space-6), 5vw, var(--space-8));
+}
+
+@media (width >= 60rem) {
+  .hero__inner {
+    grid-template-columns: 1.35fr 0.65fr;
+    align-items: center;
+  }
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-text-secondary);
+}
+
+.kicker b {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.kicker s {
+  color: var(--color-text-secondary);
+}
+
+/* El separador va dentro del span de la ubicación para que no quede huérfano al
+   final de una línea cuando el gancho corta. Y cuando la ubicación baja a una
+   línea propia (pantallas angostas) se esconde: ahí el salto ya separa, y un "·"
+   al inicio de la línea se lee como viñeta. */
+.kicker-loc {
+  white-space: nowrap;
+}
+
+.kicker-sep {
+  color: var(--color-border);
+}
+
+@media (width < 30rem) {
+  .kicker-sep {
+    display: none;
+  }
+}
+
+.hero__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-h1-size);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 34ch;
+}
+
+.lead {
+  margin-top: var(--space-5);
+  max-width: 44ch;
+  color: var(--color-text-secondary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (width < 30rem) {
+  .hero__actions .btn {
+    flex: 1 1 100%;
+  }
+}
+
+.hero .chips {
+  margin-top: var(--space-6);
+}
+
+.hero__figure {
+  margin: 0;
+}
+
+.hero__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+}
+
+@media (width >= 60rem) {
+  .hero__figure img {
+    aspect-ratio: 4 / 5;
+    max-height: none;
+  }
+}
+
+/* ===========================================================================
+   EMPRESAS
+   =========================================================================== */
+
+.companies {
+  padding-block: clamp(var(--space-6), 5vw, var(--space-8));
+  border-block: var(--border-hairline) solid var(--color-border);
+  scroll-margin-top: var(--header-h);
+}
+
+.companies__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--space-4);
+  margin-top: var(--space-5);
+  align-items: center;
+}
+
+@media (width >= 37.5rem) {
+  .companies__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 64rem) {
+  .companies__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.companies__grid li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  text-align: center;
+}
+
+/* Sin logo: el nombre en texto, con el mismo tratamiento monocromo. */
+.companies__grid span {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+}
+
+/* Con logo: monocromo real (grayscale + contrast(0) aplana cualquier color a
+   un gris uniforme y conserva la forma por el canal alfa; los logos tienen
+   que venir en SVG/PNG con fondo transparente). */
+.companies__logo {
+  max-height: 1.75rem;
+  width: auto;
+  filter: grayscale(1) contrast(0) brightness(0.62);
+}
+
+/* ===========================================================================
+   SERVICIOS
+   =========================================================================== */
+
+.cards {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (width >= 44rem) {
+  .cards--services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: var(--border-hairline) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.card__title {
+  font-size: var(--text-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: var(--space-3);
+}
+
+.card p {
+  color: var(--color-text-secondary);
+}
+
+/* ===========================================================================
+   CASOS
+   =========================================================================== */
+
+/* --- Destacado: Festivy (bloque grande, fondo oscuro) ------------------- */
+.feature {
+  display: grid;
+  gap: clamp(var(--space-6), 4vw, var(--space-8));
+  padding: clamp(var(--space-6), 4vw, var(--space-8));
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-md);
+}
+
+@media (width >= 60rem) {
+  .feature {
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+  }
+}
+
+.feature__title {
+  margin-top: var(--space-3);
+  font-size: var(--text-h2-size);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.feature__text {
+  margin-top: var(--space-4);
+  max-width: 40ch;
+  color: var(--color-text-secondary-on-dark);
+}
+
+.feature .chips {
+  margin-top: var(--space-5);
+}
+
+.feature__actions {
+  margin-top: var(--space-6);
+}
+
+.feature__figure {
+  margin: 0;
+}
+
+.feature__figure img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: rgb(250 251 252 / 6%);
+}
+
+/* --- Casos de cliente --------------------------------------------------- */
+.cases {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+@media (width >= 51.25rem) {
+  .cases {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.case {
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: var(--border-hairline) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.case__title {
+  margin-top: var(--space-3);
+  font-size: var(--text-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.case__detail {
+  margin-top: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.case__detail dt {
+  font-size: var(--text-label-size);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.case__detail dd {
+  margin-top: var(--space-1);
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+}
+
+/* --- Otros productos ---------------------------------------------------- */
+.others {
+  margin-top: clamp(var(--space-6), 4vw, var(--space-8));
+  padding-top: var(--space-6);
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+
+.others__title {
+  font-size: var(--text-label-size);
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.others__list {
+  margin-top: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.others__list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-2);
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.others__list strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ===========================================================================
+   CÓMO TRABAJO
+   =========================================================================== */
+
+.steps {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (width >= 44rem) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 70rem) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+.step {
+  padding-top: var(--space-4);
+  border-top: var(--border-hairline) solid rgb(154 163 178 / 40%);
+}
+
+.step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-body-sm-size);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary-on-dark);
+}
+
+.step__title {
+  margin-top: var(--space-3);
+  font-size: var(--text-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.step p {
+  margin-top: var(--space-2);
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+  color: var(--color-text-secondary-on-dark);
+}
+
+/* ===========================================================================
+   TRAYECTORIA
+   =========================================================================== */
+
+.link-cv {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.link-cv:hover {
+  color: var(--color-accent-hover);
+}
+
+.timeline {
+  display: grid;
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+
+.timeline__row {
+  display: grid;
+  gap: var(--space-1) var(--space-5);
+  padding-block: var(--space-4);
+  border-bottom: var(--border-hairline) solid var(--color-border);
+}
+
+@media (width >= 51.25rem) {
+  .timeline__row {
+    grid-template-columns: 9rem 12rem 1fr;
+    align-items: baseline;
+  }
+}
+
+.timeline__period {
+  font-size: var(--text-body-sm-size);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-secondary);
+}
+
+.timeline__company {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.timeline__body {
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+/* ===========================================================================
+   CONTACTO (cierre en color de acento)
+   =========================================================================== */
+
+.contact {
+  padding-block: clamp(var(--space-8), 8vw, var(--space-10));
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  scroll-margin-top: var(--header-h);
+}
+
+.contact__inner {
+  max-width: 52rem;
+  text-align: center;
+}
+
+.contact__title {
+  font-size: var(--text-h2-size);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-inline: auto;
+  max-width: 30ch;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: clamp(var(--space-6), 4vw, var(--space-7));
+}
+
+.contact__micro {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-sm-size);
+  line-height: 1.55;
+  color: var(--color-text-on-accent-secondary);
+}
+
+/* ===========================================================================
+   FOOTER
+   =========================================================================== */
+
+.site-footer {
+  padding-block: var(--space-6);
+  background: var(--color-bg);
+  border-top: var(--border-hairline) solid var(--color-border);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+}
+
+.site-footer__copy {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-text-secondary);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.site-footer__links a:hover {
+  color: var(--color-text);
+}
+
+.site-footer__links a.is-pending {
+  border: 0;
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
+}
+
+/* ===========================================================================
+   MOTION — único momento animado: la entrada del hero.
+   El estado final es el default; la animación se agrega solo cuando el
+   usuario no pidió menos movimiento, así no hay nada que anular.
+   =========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-ready .hero__body > * {
+    animation: hero-in var(--motion-duration) var(--motion-ease) both;
+  }
+
+  .anim-ready .kicker {
+    animation-delay: 0ms;
+  }
+
+  .anim-ready .hero__title {
+    animation-delay: 80ms;
+  }
+
+  .anim-ready .lead {
+    animation-delay: 160ms;
+  }
+
+  .anim-ready .hero__actions {
+    animation-delay: 240ms;
+  }
+
+  .anim-ready .hero .chips {
+    animation-delay: 320ms;
+  }
+
+  .anim-ready .hero__figure {
+    animation: hero-in var(--motion-duration) var(--motion-ease) 160ms both;
+  }
+
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(var(--motion-offset));
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* ===========================================================================
+   IMPRESIÓN
+   =========================================================================== */
+
+@media print {
+  .site-header,
+  .hero__actions,
+  .contact__actions,
+  .nav-toggle {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
