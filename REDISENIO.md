@@ -10,6 +10,23 @@ recién cuando la sección de contacto se acerca al viewport, y el botón abre l
 agenda como modal. Si el script no carga, el botón sigue siendo un link normal
 a `config.booking` en otra pestaña.
 
+## Dominio
+
+`https://leodisalvo.dev` (registrado en Cloudflare). El archivo `CNAME` de la
+raíz le indica a GitHub Pages el dominio; `ledisalvo.github.io/freelanceweb`
+redirige ahí. DNS en Cloudflare, todos en modo **DNS only** (nube gris) para
+que GitHub pueda emitir el certificado HTTPS:
+
+| Tipo | Nombre | Valor |
+|---|---|---|
+| A | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| CNAME | `www` | `ledisalvo.github.io` |
+
+Si cambia el dominio: actualizar `CNAME`, `siteUrl` y `ogImage` en
+`assets/js/config.js`, y el canonical y los metadatos Open Graph/Twitter de
+`index.html`.
+
 ## Estructura
 
 ```
