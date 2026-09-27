@@ -10,9 +10,9 @@
 
 window.SITE_CONFIG = {
   /* --- Agenda: CTA principal de la sección de contacto -------------------- */
-  // PENDIENTE: pegar el link de Cal.com o Calendly.
-  // Ej: 'https://cal.com/ledisalvo/30min'
-  booking: 'PENDIENTE',
+  // Si es de cal.com se abre como modal sobre el sitio (ver site.js); si no,
+  // o si el script de Cal no cargó, funciona como link normal en otra pestaña.
+  booking: 'https://cal.com/ledisalvo/30min',
 
   /* --- WhatsApp ---------------------------------------------------------- */
   // El texto precargado sale de las traducciones (clave contact.wa_message).

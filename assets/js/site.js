@@ -240,6 +240,80 @@
     if (btn) setLang(btn.getAttribute('data-lang'));
   });
 
+  /* --- Agenda: modal de Cal.com ------------------------------------------ */
+  // El botón es un link común a cal.com. El script de Cal se carga recién
+  // cuando la sección de contacto se acerca al viewport (no pesa en la carga
+  // inicial); una vez listo, el click abre el modal en vez de otra pestaña.
+
+  var CAL_NS = 'booking';
+  var calLink = /^https:\/\/cal\.com\//.test(CFG.booking || '')
+    ? CFG.booking.replace(/^https:\/\/cal\.com\//, '').replace(/\/$/, '')
+    : null;
+  var calReady = false;
+
+  function loadCal() {
+    if (window.Cal) return;
+    // Snippet oficial de embed de Cal.com.
+    (function (C, A, L) {
+      var p = function (a, ar) { a.q.push(ar); };
+      var d = C.document;
+      C.Cal = C.Cal || function () {
+        var cal = C.Cal;
+        var ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          var s = d.createElement('script');
+          s.src = A;
+          s.async = true;
+          s.onload = function () { calReady = true; };
+          d.head.appendChild(s);
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          var api = function () { p(api, arguments); };
+          var namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === 'string') {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ['initNamespace', namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+    window.Cal('init', CAL_NS, { origin: 'https://app.cal.com' });
+    window.Cal.ns[CAL_NS]('ui', {
+      theme: 'light',
+      cssVarsPerTheme: { light: { 'cal-brand': '#2A4A7F' } },
+      layout: 'month_view',
+    });
+  }
+
+  if (calLink) {
+    var contact = document.getElementById('contacto');
+    if (contact && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          io.disconnect();
+          loadCal();
+        }
+      }, { rootMargin: '600px 0px' });
+      io.observe(contact);
+    }
+
+    document.addEventListener('click', function (event) {
+      var el = event.target.closest('[data-link="booking"]');
+      // Sin script listo (bloqueado, offline, todavía cargando): link normal.
+      if (!el || !calReady || !window.Cal || !window.Cal.ns[CAL_NS]) return;
+      event.preventDefault();
+      window.Cal.ns[CAL_NS]('modal', { calLink: calLink, config: { layout: 'month_view' } });
+    });
+  }
+
   /* --- Único momento de animación: entrada del hero ---------------------- */
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

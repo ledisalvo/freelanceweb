@@ -5,6 +5,11 @@ GitHub Pages (rama `master`, raíz del repo). No hay paso de compilación, no ha
 dependencias de terceros en runtime — ni jQuery, ni FontAwesome, ni Google Fonts:
 las tipografías están self-hosted en `assets/fonts/`.
 
+Única excepción: el embed de Cal.com para agendar llamadas. `site.js` lo carga
+recién cuando la sección de contacto se acerca al viewport, y el botón abre la
+agenda como modal. Si el script no carga, el botón sigue siendo un link normal
+a `config.booking` en otra pestaña.
+
 ## Estructura
 
 ```
@@ -48,7 +53,6 @@ se puede publicar algo roto sin darse cuenta.
 
 | Qué falta | Dónde se completa |
 |---|---|
-| Link de Cal.com o Calendly | `config.booking` |
 | Foto nueva del hero | `config.heroImage` — sugerido `images/leo.webp`, 1000×1250, plano medio, luz natural |
 | Logo de Telmex (Bistrosoft queda en texto: su isotipo solo no se reconoce) | `config.companies[].logo` — ver abajo |
 | Logos en SVG oficial (los PNG actuales salen de avatares de LinkedIn de 100 px) | `images/empresas/` |
