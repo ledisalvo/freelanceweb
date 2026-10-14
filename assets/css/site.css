@@ -300,27 +300,6 @@ s {
   white-space: nowrap;
 }
 
-/* --- Chips de stack ----------------------------------------------------- */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.chips li {
-  padding: var(--space-1) var(--space-3);
-  border: var(--border-hairline) solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-body-sm-size);
-  line-height: 1.55;
-  color: var(--color-text-secondary);
-}
-
-.chips--on-dark li {
-  border-color: rgb(154 163 178 / 45%);
-  color: var(--color-text-secondary-on-dark);
-}
-
 /* --- Secciones ---------------------------------------------------------- */
 .section {
   padding-block: clamp(var(--space-8), 8vw, var(--space-10));
@@ -608,10 +587,6 @@ s {
   }
 }
 
-.hero .chips {
-  margin-top: var(--space-6);
-}
-
 .hero__figure {
   margin: 0;
 }
@@ -758,10 +733,6 @@ s {
   margin-top: var(--space-4);
   max-width: 40ch;
   color: var(--color-text-secondary-on-dark);
-}
-
-.feature .chips {
-  margin-top: var(--space-5);
 }
 
 .feature__actions {
@@ -916,61 +887,25 @@ s {
 }
 
 /* ===========================================================================
-   TRAYECTORIA
+   RUBROS (ejemplos por tipo de negocio)
    =========================================================================== */
 
-.link-cv {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  font-size: var(--text-body-sm-size);
-  font-weight: 600;
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-.link-cv:hover {
-  color: var(--color-accent-hover);
-}
-
-.timeline {
-  display: grid;
-  border-top: var(--border-hairline) solid var(--color-border);
-}
-
-.timeline__row {
-  display: grid;
-  gap: var(--space-1) var(--space-5);
-  padding-block: var(--space-4);
-  border-bottom: var(--border-hairline) solid var(--color-border);
-}
-
-@media (width >= 51.25rem) {
-  .timeline__row {
-    grid-template-columns: 9rem 12rem 1fr;
-    align-items: baseline;
+@media (width >= 60rem) {
+  .cards--rubros {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.timeline__period {
-  font-size: var(--text-body-sm-size);
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-secondary);
+/* ===========================================================================
+   SOBRE MÍ
+   =========================================================================== */
+
+.about {
+  max-width: 44rem;
 }
 
-.timeline__company {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-}
-
-.timeline__body {
-  font-size: var(--text-body-sm-size);
-  line-height: 1.55;
-  color: var(--color-text-secondary);
+.about p + p {
+  margin-top: var(--space-4);
 }
 
 /* ===========================================================================
@@ -1092,10 +1027,6 @@ s {
 
   .anim-ready .hero__actions {
     animation-delay: 240ms;
-  }
-
-  .anim-ready .hero .chips {
-    animation-delay: 320ms;
   }
 
   .anim-ready .hero__figure {
