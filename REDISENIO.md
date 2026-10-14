@@ -37,12 +37,19 @@ assets/fonts/*.woff2           Archivo (titulares) + Public Sans (cuerpo)
 assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
 assets/js/site.js              i18n, links, logos, menú mobile
-images/og-v2.png                  imagen Open Graph
+images/og-v3.png                  imagen Open Graph
 images/placeholders/           placeholders de foto y captura
 ```
 
-Orden de secciones: Nav → Hero → Empresas → Servicios → Casos → Cómo trabajo →
-Trayectoria → Contacto/Footer.
+Orden de secciones: Nav → Hero → Empresas → Qué hago → Ideas por rubro →
+Trabajos → Cómo trabajamos → Sobre mí → Contacto/Footer.
+
+**Público:** dueños de comercios, pymes y emprendedores (restaurantes,
+locales, consultorios), no recruiters ni gente de sistemas. El copy habla de
+problemas y resultados del negocio — más clientes, menos tareas repetitivas,
+menos costos — sin jerga técnica (legacy, SaaS, stack, deploy…). El CTA
+principal es WhatsApp; la videollamada por Cal.com es la opción secundaria.
+Los PDF del CV siguen en la raíz pero la página ya no los enlaza.
 
 ## Cómo cambiar cosas
 
@@ -68,9 +75,7 @@ lo esté, el sitio muestra el elemento en estado placeholder visible (el botón
 queda con borde punteado y el texto "(link pendiente de configurar)"), así que no
 se puede publicar algo roto sin darse cuenta.
 
-| Qué falta | Dónde se completa |
-|---|---|
-| CV actualizado ES y EN | reemplazar los dos PDF de la raíz (los nombres están en `config.cv`) |
+Hoy no queda ninguno.
 
 ### Logos de empresas
 
@@ -89,19 +94,18 @@ Dos condiciones:
 
 ### Imagen Open Graph
 
-`images/og-v2.png` (1200×630) se generó con la paleta y las tipografías del sistema,
+`images/og-v3.png` (1200×630) se generó con la paleta y las tipografías del sistema,
 con la foto del hero a la derecha. LinkedIn y WhatsApp la muestran a ~500 px, así
 que lleva solo texto grande (nombre, titular, dominio): nada por debajo de ~32 px.
 
-Si se regenera, usar un nombre de archivo nuevo (`og-v3.png`, …) y actualizar
+Si se regenera, usar un nombre de archivo nuevo (`og-v4.png`, …) y actualizar
 `ogImage` y los metadatos: las redes cachean la imagen por URL. Después, pasar
 la URL por el Post Inspector de LinkedIn para refrescar su caché.
 
 ## Idiomas
 
 Español por defecto. El switch ES/EN cambia el copy, los metadatos
-(`title`, `description`, Open Graph, Twitter), el `lang` del `<html>`, el CV que
-se descarga y el mensaje precargado de WhatsApp. La elección se guarda en
+(`title`, `description`, Open Graph, Twitter), el `lang` del `<html>` y el mensaje precargado de WhatsApp. La elección se guarda en
 `localStorage` (y si está bloqueado, el sitio igual funciona en la visita actual).
 
 ## Accesibilidad y motion
