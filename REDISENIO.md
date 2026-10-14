@@ -88,9 +88,18 @@ Dos condiciones:
 1. **Verificar el contrato** antes de usar los logos de los clientes atendidos
    vía consultora (Grimoldi, Telmex, Monex).
 2. El archivo tiene que ser **SVG o PNG con fondo transparente**. El CSS los
-   aplana a un gris uniforme con `grayscale(1) contrast(0) brightness(.62)`, que
+   aplana a un gris uniforme con `grayscale(1) contrast(0) brightness(1.45)`, que
    conserva la forma por el canal alfa; un logo con fondo opaco se vería como un
    rectángulo gris.
+
+### Retrato del hero
+
+`images/leo-bn.webp`: la foto con el fondo quitado (rembg, modelo
+`isnet-general-use`), en blanco y negro con contraste y fondo transparente. Se
+apoya sobre la ola oscura del pie del hero (`.hero__wave`), que tapa el corte
+de los hombros; los costados se difuminan con `mask-image`. Si se cambia la foto,
+tiene que ser un recorte con fondo transparente. `images/leo.webp` (color) queda
+como fuente para la imagen Open Graph.
 
 ### Imagen Open Graph
 

@@ -507,7 +507,10 @@ s {
    =========================================================================== */
 
 .hero {
-  padding-block: clamp(var(--space-7), 7vw, var(--space-9));
+  --wave-h: clamp(3.5rem, 6vw, 6rem);
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(var(--space-7), 7vw, var(--space-9));
   scroll-margin-top: var(--header-h);
 }
 
@@ -518,8 +521,13 @@ s {
 
 @media (width >= 60rem) {
   .hero__inner {
-    grid-template-columns: 1.35fr 0.65fr;
-    align-items: center;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: end;
+  }
+
+  /* El texto termina por encima de la ola; el retrato baja hasta el borde. */
+  .hero__body {
+    padding-bottom: calc(var(--wave-h) + var(--space-6));
   }
 }
 
@@ -591,30 +599,54 @@ s {
   margin: 0;
 }
 
-/* Retrato 4:5 siempre: en mobile como tarjeta acotada (un recorte apaisado
-   de un primer plano corta pelo y mentón); en desktop ocupa la columna. */
+/* Retrato recortado en blanco y negro, sin marco: apoyado sobre la ola, que
+   tapa el corte recto de los hombros. */
+.hero__figure {
+  justify-self: end;
+  width: min(100%, 26rem);
+}
+
 .hero__figure img {
-  width: min(100%, 17rem);
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  background: var(--color-bg-alt);
+  display: block;
+  width: 100%;
+  height: auto;
+  /* La remera toca los bordes de la foto: se difuminan los costados para que
+     no se vea el corte recto donde la ola baja. */
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
 }
 
 @media (width >= 60rem) {
-  .hero__figure img {
-    width: 100%;
+  /* Más grande que su columna: el retrato es el protagonista del hero. */
+  .hero__figure {
+    width: 122%;
+    margin-right: -14%;
   }
+}
+
+.hero__wave {
+  position: absolute;
+  inset: auto 0 -1px;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: var(--wave-h);
+  color: var(--color-bg-dark);
+  pointer-events: none;
 }
 
 /* ===========================================================================
    EMPRESAS
    =========================================================================== */
 
+/* Continúa la ola del hero: fondo oscuro, logos en gris claro. */
 .companies {
-  padding-block: clamp(var(--space-6), 5vw, var(--space-8));
-  border-block: var(--border-hairline) solid var(--color-border);
+  padding-block: var(--space-4) clamp(var(--space-7), 6vw, var(--space-8));
+  background: var(--color-bg-dark);
   scroll-margin-top: var(--header-h);
+}
+
+.companies .eyebrow {
+  color: var(--color-text-secondary-on-dark);
 }
 
 .companies__grid {
@@ -651,7 +683,7 @@ s {
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary-on-dark);
 }
 
 /* Con logo: monocromo real (grayscale + contrast(0) aplana cualquier color a
@@ -659,12 +691,13 @@ s {
    que venir en SVG/PNG con fondo transparente). */
 .companies__logo {
   /* Alto y ancho máximos juntos equilibran el peso visual entre isotipos
-     cuadrados y wordmarks anchos. */
+     cuadrados y wordmarks anchos. El brillo deja el gris claro sobre fondo
+     oscuro. */
   max-height: 2.25rem;
   max-width: 7.5rem;
   width: auto;
   height: auto;
-  filter: grayscale(1) contrast(0) brightness(0.62);
+  filter: grayscale(1) contrast(0) brightness(1.45);
 }
 
 /* ===========================================================================
