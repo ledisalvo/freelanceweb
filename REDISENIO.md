@@ -3,12 +3,12 @@
 Sitio estático sin build: HTML + CSS + un JS vanilla. Se sirve tal cual desde
 GitHub Pages (rama `master`, raíz del repo). No hay paso de compilación, no hay
 dependencias de terceros en runtime — ni jQuery, ni FontAwesome, ni Google Fonts:
-las tipografías están self-hosted en `assets/fonts/`.
+la tipografía está self-hosted en `assets/fonts/`.
 
 Única excepción: el embed de Cal.com para agendar llamadas. `site.js` lo carga
-recién cuando la sección de contacto se acerca al viewport, y el botón abre la
-agenda como modal. Si el script no carga, el botón sigue siendo un link normal
-a `config.booking` en otra pestaña.
+recién cuando la sección de contacto se acerca al viewport, y los botones de
+"Agendá una videollamada" abren la agenda como modal. Si el script no carga,
+siguen siendo links normales a `config.booking` en otra pestaña.
 
 ## Dominio
 
@@ -27,29 +27,59 @@ Si cambia el dominio: actualizar `CNAME`, `siteUrl` y `ogImage` en
 `assets/js/config.js`, y el canonical y los metadatos Open Graph/Twitter de
 `index.html`.
 
+## Público y tono
+
+Dueños de comercios, pymes y emprendedores (restaurantes, locales,
+consultorios), no recruiters ni gente de sistemas. El copy habla de problemas y
+resultados del negocio — más clientes, menos tareas repetitivas, menos costos —
+sin jerga técnica (legacy, SaaS, stack, deploy…). El CTA principal es WhatsApp;
+la videollamada por Cal.com es la opción secundaria. Los PDF del CV siguen en la
+raíz pero la página no los enlaza.
+
 ## Estructura
 
 ```
 index.html                     una sola página, HTML semántico, copy ES inline
-assets/css/site.css            sistema visual (tokens) + todos los componentes
-assets/css/fonts.css           @font-face de las tipografías self-hosted
-assets/fonts/*.woff2           Archivo (titulares) + Public Sans (cuerpo)
+assets/css/site.css            sistema visual (tokens en :root) + componentes
+assets/css/fonts.css           @font-face de Manrope (self-hosted)
+assets/fonts/manrope-*.woff2   Manrope variable, subsets latin y latin-ext
 assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
-assets/js/site.js              i18n, links, logos, menú mobile
-images/og-v3.png                  imagen Open Graph
-images/placeholders/           placeholders de foto y captura
+assets/js/site.js              i18n, links, logos, menú, agenda Cal.com
+images/leo-bn.webp             retrato del hero (recorte B/N, fondo transparente)
+images/empresas/               logos de empresas (SVG/PNG transparentes)
+images/casos/festivy.webp      captura de Festivy
+images/og-v4.png               imagen Open Graph
 ```
 
-Orden de secciones: Nav → Hero → Empresas → Qué hago → Ideas por rubro →
-Trabajos → Cómo trabajamos → Sobre mí → Contacto/Footer.
+Orden de secciones: Nav → Hero → Experiencia (logos) → Qué hago → Ideas por
+rubro → Trabajos → Cómo trabajamos → Sobre mí → Contacto → Footer.
 
-**Público:** dueños de comercios, pymes y emprendedores (restaurantes,
-locales, consultorios), no recruiters ni gente de sistemas. El copy habla de
-problemas y resultados del negocio — más clientes, menos tareas repetitivas,
-menos costos — sin jerga técnica (legacy, SaaS, stack, deploy…). El CTA
-principal es WhatsApp; la videollamada por Cal.com es la opción secundaria.
-Los PDF del CV siguen en la raíz pero la página ya no los enlaza.
+## Sistema visual
+
+Inspirado en la plantilla Rayo: fondo casi negro (`#141414`), tarjetas
+`#1E1E1E` muy redondeadas, botones en píldora, un único acento **lima**
+(`#DDF26B`) y un violeta (`#B3A6FF`) reservado para badges. Manrope en todo el
+sitio: titulares en peso 500 con interletrado negativo, cuerpo en 400.
+
+Gestos propios del sistema:
+
+- **`.hl`**: resaltado en píldora lima dentro del titular del hero.
+- **`.spark`**: estrellita de 4 puntas dibujada con `mask-image` (toma el color
+  del texto; `.spark--accent` la pinta de lima). Se usa en etiquetas de sección,
+  titulares y el cierre. Puede ir dentro de las traducciones.
+- **`.marquee`**: titular gigante en gris ("Experiencia ✦") que corre en bucle.
+  Son cuatro repeticiones idénticas y la animación desplaza exactamente un 25 %.
+- **`.pill-panel`**: bloque claro con forma de píldora (ideas por rubro).
+- **Menú**: botón redondo que abre un panel en cualquier ancho; adentro van los
+  links de sección y el switch ES/EN.
+
+**Un color o una medida:** el bloque `:root` al inicio de `assets/css/site.css`.
+
+> Si cambiás un color de texto o de fondo, verificá que el par siga en AA
+> (4.5:1 para cuerpo, 3:1 para texto grande). Pares actuales: secundario
+> `#A3A3A3` sobre `#1E1E1E` 6.6:1; el gris `.muted` `#7A7A7A` solo se usa en
+> texto de 26 px o más (4.3:1); texto oscuro sobre lima y violeta, más de 12:1.
 
 ## Cómo cambiar cosas
 
@@ -58,113 +88,78 @@ está escrito en el HTML.
 
 **Un texto, en cualquiera de los dos idiomas:** `assets/js/translations.js`. El
 HTML trae el texto en español inline solo para que la página se vea bien si el JS
-todavía no cargó; la fuente de verdad son las traducciones.
+todavía no cargó; la fuente de verdad son las traducciones. Algunos valores
+llevan HTML a propósito (`.hl`, `.spark`, `.muted`).
 
-**Un color o una tipografía:** el bloque `:root` al inicio de
-`assets/css/site.css`. Todas las reglas de abajo usan esos tokens, así que
-cambiar un hex ahí lo cambia en todo el sitio.
+### Placeholders
 
-> Si cambiás un color de texto o de fondo, verificá que el par siga en AA
-> (4.5:1 para cuerpo, 3:1 para texto grande). La paleta actual está verificada:
-> el par más bajo en uso es el microcopy sobre el bloque de acento, 5.98:1.
-
-## Placeholders pendientes
-
-Todo lo de abajo está marcado con `PENDIENTE` en `assets/js/config.js`. Mientras
-lo esté, el sitio muestra el elemento en estado placeholder visible (el botón
-queda con borde punteado y el texto "(link pendiente de configurar)"), así que no
-se puede publicar algo roto sin darse cuenta.
-
-Hoy no queda ninguno.
+Un valor marcado `PENDIENTE` en `config.js` hace que el sitio muestre el
+elemento en estado placeholder visible (borde punteado y "(link pendiente de
+configurar)"), así no se publica algo roto sin darse cuenta. Hoy no queda
+ninguno.
 
 ### Logos de empresas
 
-Hoy los seis salen como nombre en texto, con el mismo tratamiento visual. En
-cuanto haya un logo, se pone la ruta en `logo` y el sitio lo usa en lugar del
-texto, sin tocar nada más.
+Se cargan desde `config.companies`; sin `logo`, la empresa sale como nombre en
+texto con el mismo tono. El archivo tiene que ser **SVG o PNG con fondo
+transparente**: el CSS los aplana a gris claro con
+`grayscale(1) contrast(0) brightness(1.5)`, que conserva la forma por el canal
+alfa; un logo con fondo opaco se vería como un rectángulo gris.
 
-Dos condiciones:
-
-1. **Verificar el contrato** antes de usar los logos de los clientes atendidos
-   vía consultora (Grimoldi, Telmex, Monex).
-2. El archivo tiene que ser **SVG o PNG con fondo transparente**. El CSS los
-   aplana a un gris uniforme con `grayscale(1) contrast(0) brightness(1.45)`, que
-   conserva la forma por el canal alfa; un logo con fondo opaco se vería como un
-   rectángulo gris.
+Pendiente de Leo: confirmar que el contrato con la consultora permite mostrar
+los logos de Grimoldi y Telmex.
 
 ### Retrato del hero
 
 `images/leo-bn.webp`: la foto con el fondo quitado (rembg, modelo
-`isnet-general-use`), en blanco y negro con contraste y fondo transparente. Se
-apoya sobre la ola oscura del pie del hero (`.hero__wave`), que tapa el corte
-de los hombros; los costados se difuminan con `mask-image`. Si se cambia la foto,
-tiene que ser un recorte con fondo transparente. `images/leo.webp` (color) queda
-como fuente para la imagen Open Graph.
+`isnet-general-use`), en blanco y negro con contraste. Se funde hacia abajo y a
+los costados con `mask-image`, así no se ve el corte de los hombros. Si se cambia
+la foto, tiene que ser un recorte con fondo transparente. `images/leo.webp`
+(color) queda como fuente alternativa.
 
 ### Imagen Open Graph
 
-`images/og-v3.png` (1200×630) se generó con la paleta y las tipografías del sistema,
-con la foto del hero a la derecha. LinkedIn y WhatsApp la muestran a ~500 px, así
-que lleva solo texto grande (nombre, titular, dominio): nada por debajo de ~32 px.
+`images/og-v4.png` (1200×630): fondo oscuro, titular con el resaltado lima y el
+retrato. LinkedIn y WhatsApp la muestran a ~500 px, así que lleva solo texto
+grande (nombre, titular, dominio): nada por debajo de ~30 px.
 
-Si se regenera, usar un nombre de archivo nuevo (`og-v4.png`, …) y actualizar
+Si se regenera, usar un nombre de archivo nuevo (`og-v5.png`, …) y actualizar
 `ogImage` y los metadatos: las redes cachean la imagen por URL. Después, pasar
 la URL por el Post Inspector de LinkedIn para refrescar su caché.
 
 ## Idiomas
 
-Español por defecto. El switch ES/EN cambia el copy, los metadatos
-(`title`, `description`, Open Graph, Twitter), el `lang` del `<html>` y el mensaje precargado de WhatsApp. La elección se guarda en
-`localStorage` (y si está bloqueado, el sitio igual funciona en la visita actual).
+Español por defecto. El switch ES/EN (dentro del menú) cambia el copy, los
+metadatos (`title`, `description`, Open Graph, Twitter), el `lang` del `<html>` y
+el mensaje precargado de WhatsApp. La elección se guarda en `localStorage` (y si
+está bloqueado, el sitio igual funciona en la visita actual).
 
 ## Accesibilidad y motion
 
-- Foco visible propio en todo elemento interactivo, con el anillo aclarado dentro
-  de los bloques oscuros y del bloque de acento (ahí el azul no llega a 3:1).
-- Targets táctiles de 44 px mínimo.
-- Un solo momento de animación: la entrada del hero. Está dentro de
-  `@media (prefers-reduced-motion: no-preference)`, así que con movimiento
-  reducido el contenido aparece directo en su posición final, sin nada que anular.
-  El scroll suave también se apaga con `prefers-reduced-motion`.
+- Foco visible de 2 px en lima; dentro del bloque claro, en oscuro.
+- Targets táctiles de 44 px mínimo; botones principales de 56 px.
+- El menú abre con el botón redondo, cierra con Escape o al elegir un link.
+- Dos animaciones: la entrada del hero y el titular "Experiencia". Ambas viven
+  dentro de `@media (prefers-reduced-motion: no-preference)`: con movimiento
+  reducido el contenido aparece quieto en su posición final. El scroll suave
+  también se apaga con `prefers-reduced-motion`.
 
 ## Verificación
 
-Medido con Lighthouse 12.8.2 (mobile, Chromium headless) sobre el sitio servido
-localmente:
+Verificado en Chromium headless sobre el sitio servido localmente (rediseño
+oscuro, octubre 2026):
 
-| Categoría | Con los placeholders | Con la config completa |
-|---|---|---|
-| Performance | 99 | 99 |
-| Accessibility | 100 | 100 |
-| Best Practices | 100 | 100 |
-| SEO | 92 | **100** |
+- render completo a 1440 px y a 390 px; sin scroll horizontal en 390 px;
+- menú: abre (`aria-expanded="true"`), muestra el panel y cierra con Escape;
+- switch ES/EN: cambia titular y mensaje de WhatsApp;
+- links de WhatsApp, Cal.com (los dos botones) y mail resueltos desde la
+  config; ningún placeholder pendiente; los 6 logos cargados;
+- el botón de agenda abre el modal de Cal.com;
+- las 77 claves de texto usadas en el HTML existen en ES y EN.
 
-Los 8 puntos de SEO que faltan hoy son una sola auditoría, `crawlable-anchors`:
-los tres CTA que están en `PENDIENTE` se renderizan sin `href` (es justamente lo
-que los hace visibles como placeholders). En cuanto se completan las URLs en
-`config.js`, SEO llega a 100 — está verificado corriendo Lighthouse contra una
-copia con la config llena.
-
-Para repetir la medición:
+Lighthouse no se volvió a medir después del rediseño. Para hacerlo:
 
 ```bash
 python3 -m http.server 8000          # desde la raíz del repo
 npx lighthouse http://localhost:8000 --view
 ```
-
-También se verificó en Chromium real, a 360 / 390 / 768 / 1280 / 1440 px:
-
-- sin scroll horizontal ni elementos desbordados en ningún ancho;
-- servicios y casos a una columna en mobile, 2 columnas en desktop; "cómo
-  trabajo" a 4 columnas; empresas 2 → 3 → 6;
-- todos los targets interactivos de 44 px o más de alto;
-- 15 elementos alcanzables por Tab, todos con anillo de foco de 2 px (aclarado
-  dentro de los bloques oscuros);
-- con `prefers-reduced-motion: reduce` el hero no anima y el scroll suave se
-  apaga;
-- sin errores de consola.
-
-Y funcionalmente (jsdom): el switch ES/EN cambia copy, metadatos, `lang`, CV y
-mensaje de WhatsApp; la elección persiste; el menú mobile abre, cierra con
-Escape y devuelve el foco al botón; los links pendientes quedan en estado
-placeholder; los logos de empresas caen a texto cuando no hay archivo.
