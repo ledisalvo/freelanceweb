@@ -33,8 +33,8 @@ window.SITE_CONFIG = {
   },
 
   /* --- Foto del hero ----------------------------------------------------- */
-  // Retrato 4:5 (820x1025). Si se cambia, mantener la proporción 4:5.
-  heroImage: 'images/leo.webp',
+  // Retrato recortado (fondo transparente) en blanco y negro, 1079x1025.
+  heroImage: 'images/leo-bn.webp',
 
   /* --- CV / résumé por idioma -------------------------------------------- */
   cv: {
@@ -60,5 +60,5 @@ window.SITE_CONFIG = {
 
   /* --- Metadatos --------------------------------------------------------- */
   siteUrl: 'https://leodisalvo.dev/',
-  ogImage: 'https://leodisalvo.dev/images/og-v3.png',
+  ogImage: 'https://leodisalvo.dev/images/og-v4.png',
 };

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141414" />
 
     <title>Leonardo Di Salvo · Tecnología para tu negocio</title>
     <meta
@@ -26,7 +27,7 @@
       content="Páginas web, automatizaciones y sistemas a medida para comercios, pymes y emprendedores. Más clientes y menos tareas repetitivas para tu negocio."
     />
     <meta property="og:url" content="https://leodisalvo.dev/" />
-    <meta property="og:image" content="https://leodisalvo.dev/images/og-v3.png" />
+    <meta property="og:image" content="https://leodisalvo.dev/images/og-v4.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -37,21 +38,13 @@
       name="twitter:description"
       content="Páginas web, automatizaciones y sistemas a medida para comercios, pymes y emprendedores. Más clientes y menos tareas repetitivas para tu negocio."
     />
-    <meta name="twitter:image" content="https://leodisalvo.dev/images/og-v3.png" />
+    <meta name="twitter:image" content="https://leodisalvo.dev/images/og-v4.png" />
 
-    <!-- Tipografías self-hosted: preload real de los dos woff2 críticos -->
-    <link
-      rel="preload"
-      href="assets/fonts/public-sans-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Tipografía self-hosted: preload real del woff2 crítico -->
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="assets/css/site.css" />
-
   </head>
 
   <body>
@@ -60,27 +53,36 @@
     <!-- =====================================================  NAV  ===== -->
     <header class="site-header" id="top">
       <div class="wrap site-header__inner">
-        <a class="wordmark" href="#top">Leonardo Di&nbsp;Salvo</a>
+        <a class="wordmark" href="#top">
+          <span class="wordmark__badge" aria-hidden="true">ld</span>
+          <span class="wordmark__name">Leonardo<br />Di&nbsp;Salvo</span>
+        </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          data-i18n-aria-label="nav.menu_open"
-          aria-label="Abrir menú de navegación"
-        >
-          <span class="nav-toggle__bars" aria-hidden="true"></span>
-        </button>
+        <div class="site-header__actions">
+          <a class="btn btn--outline btn--sm" data-link="whatsapp" href="#contacto" target="_blank" rel="noopener"
+            ><span data-i18n="nav.cta">Escribime</span> <span class="arrow" aria-hidden="true"></span
+          ></a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-aria-label="nav.menu_open"
+            aria-label="Abrir menú de navegación"
+          >
+            <span class="nav-toggle__bars" aria-hidden="true"></span>
+          </button>
+        </div>
 
         <nav class="site-nav" id="site-nav" data-i18n-aria-label="nav.aria" aria-label="Navegación principal">
           <ul class="site-nav__list">
             <li><a href="#servicios" data-i18n="nav.services">Qué hago</a></li>
             <li><a href="#rubros" data-i18n="nav.ideas">Ideas para tu negocio</a></li>
             <li><a href="#trabajos" data-i18n="nav.work">Trabajos</a></li>
+            <li><a href="#como-trabajo" data-i18n="nav.how">Cómo trabajamos</a></li>
             <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+            <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
           </ul>
-          <a class="btn btn--sm btn--accent site-nav__cta" href="#contacto" data-i18n="nav.contact">Contacto</a>
           <div
             class="lang-switch"
             role="group"
@@ -99,31 +101,40 @@
       <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="wrap hero__inner">
           <div class="hero__body">
-            <p class="kicker" data-i18n="hero.kicker">
-              <b>Tecnología para comercios y pymes</b>
-              <span class="kicker-loc"><span class="kicker-sep">·</span> Buenos Aires</span>
+            <p class="label">
+              <span class="spark spark--accent" aria-hidden="true"></span>
+              <span data-i18n="hero.kicker">Tecnología para comercios y pymes · Buenos Aires</span>
             </p>
             <h1 class="hero__title" id="hero-title" data-i18n="hero.title">
-              Más clientes y menos trabajo repetitivo para tu negocio.
+              Más clientes y <span class="hl">menos trabajo</span> repetitivo
+              <span class="spark" aria-hidden="true"></span> para tu negocio.
             </h1>
             <p class="lead" data-i18n="hero.lead">
-              Te ayudo a que tu negocio se vea y se encuentre en internet, y a automatizar las tareas que
-              hoy hacés a mano una y otra vez. Ganás tiempo, bajás costos y te dedicás a lo que importa. Sin
-              tecnicismos: me contás qué necesitás y te propongo una solución a tu medida.
+              Te ayudo a que tu negocio se vea y se encuentre en internet, y a automatizar las tareas que hoy
+              hacés a mano. Ganás tiempo, bajás costos y te dedicás a lo que importa.
             </p>
-            <div class="hero__actions">
-              <a class="btn btn--accent" data-link="whatsapp" href="#contacto" target="_blank" rel="noopener"
-                ><span data-i18n="hero.cta_primary">Escribime por WhatsApp</span></a
+            <div class="actions">
+              <a class="btn btn--accent btn--lg" data-link="whatsapp" href="#contacto" target="_blank" rel="noopener"
+                ><span data-i18n="hero.cta_primary">Escribime por WhatsApp</span>
+                <span class="arrow" aria-hidden="true"></span
+              ></a>
+              <a
+                class="btn btn--outline btn--lg"
+                data-link="booking"
+                href="#contacto"
+                target="_blank"
+                rel="noopener"
+                data-i18n="hero.cta_secondary"
+                >Agendá una videollamada</a
               >
-              <a class="btn btn--ghost" href="#servicios" data-i18n="hero.cta_secondary">Ver qué puedo hacer</a>
             </div>
           </div>
 
           <figure class="hero__figure">
             <img
               data-img="hero"
-              src="images/leo.webp"
-              width="820"
+              src="images/leo-bn.webp"
+              width="1079"
               height="1025"
               alt="Retrato de Leonardo Di Salvo"
               data-i18n-alt="hero.photo_alt"
@@ -132,10 +143,16 @@
         </div>
       </section>
 
-      <!-- ==============================================  EMPRESAS  ===== -->
+      <!-- ===========================================  EXPERIENCIA  ===== -->
       <section class="companies" id="empresas" aria-labelledby="companies-label">
+        <p class="marquee" aria-hidden="true">
+          <span data-i18n="companies.marquee">Experiencia</span> <span class="spark"></span>
+          <span data-i18n="companies.marquee">Experiencia</span> <span class="spark"></span>
+          <span data-i18n="companies.marquee">Experiencia</span> <span class="spark"></span>
+          <span data-i18n="companies.marquee">Experiencia</span> <span class="spark"></span>
+        </p>
         <div class="wrap">
-          <h2 class="eyebrow" id="companies-label" data-i18n="companies.label">
+          <h2 class="companies__label" id="companies-label" data-i18n="companies.label">
             Más de 15 años haciendo sistemas para empresas como
           </h2>
           <ul class="companies__grid" data-companies>
@@ -149,46 +166,49 @@
         </div>
       </section>
 
-      <!-- ==============================================  SERVICIOS  ===== -->
+      <!-- ==============================================  QUÉ HAGO  ===== -->
       <section class="section" id="servicios" aria-labelledby="servicios-title">
         <div class="wrap">
           <header class="section__head">
-            <h2 class="section__title" id="servicios-title" data-i18n="services.title">
-              Qué puedo hacer por tu negocio
-            </h2>
-            <p class="section__lead" data-i18n="services.lead">
-              Desde algo puntual hasta un sistema completo. Vos sabés de tu negocio; de la tecnología me
-              encargo yo.
+            <p class="label">
+              <span class="spark" aria-hidden="true"></span> <span data-i18n="services.label">Qué hago</span>
             </p>
+            <h2 class="section__title" id="servicios-title" data-i18n="services.title">
+              Soluciones simples para que tu negocio crezca
+            </h2>
           </header>
 
-          <ul class="cards cards--services">
+          <ul class="cards">
             <li class="card">
-              <h3 class="card__title" data-i18n="services.1_title">Que te encuentren y te elijan.</h3>
+              <span class="badge badge--accent" data-i18n="services.1_badge">Más clientes</span>
+              <h3 class="card__title" data-i18n="services.1_title">Que te encuentren y te elijan</h3>
               <p data-i18n="services.1_body">
-                Una página web clara y rápida, conectada con tu WhatsApp y tus redes, para que quien te busca
-                en internet te encuentre, confíe y te contacte.
+                Una página web clara y rápida, conectada con tu WhatsApp y tus redes, para que quien te busca te
+                encuentre, confíe y te contacte.
               </p>
             </li>
             <li class="card">
-              <h3 class="card__title" data-i18n="services.2_title">Menos tareas repetitivas.</h3>
+              <span class="badge badge--alt" data-i18n="services.2_badge">Ahorrá tiempo</span>
+              <h3 class="card__title" data-i18n="services.2_title">Menos tareas repetitivas</h3>
               <p data-i18n="services.2_body">
-                Pedidos, turnos, recordatorios, planillas: lo que hoy hacés a mano todos los días lo puede
-                hacer el sistema solo. Ganás horas y bajás costos.
+                Pedidos, turnos, recordatorios, planillas: lo que hoy hacés a mano todos los días lo puede hacer
+                el sistema solo.
               </p>
             </li>
             <li class="card">
-              <h3 class="card__title" data-i18n="services.3_title">Un sistema a tu medida.</h3>
+              <span class="badge badge--outline" data-i18n="services.3_badge">A medida</span>
+              <h3 class="card__title" data-i18n="services.3_title">Un sistema hecho para vos</h3>
               <p data-i18n="services.3_body">
-                Cuando el Excel o el cuaderno ya no alcanzan: ventas, stock, clientes o turnos en un solo
-                lugar. O mejoro el sistema que ya usás, si anda lento o nadie lo sabe tocar.
+                Cuando el Excel o el cuaderno ya no alcanzan: ventas, stock, clientes o turnos en un solo lugar. O
+                mejoro el que ya usás.
               </p>
             </li>
             <li class="card">
-              <h3 class="card__title" data-i18n="services.4_title">Inteligencia artificial que trabaja para vos.</h3>
+              <span class="badge badge--accent" data-i18n="services.4_badge">Inteligencia artificial</span>
+              <h3 class="card__title" data-i18n="services.4_title">IA que trabaja para vos</h3>
               <p data-i18n="services.4_body">
-                Respuestas automáticas a las consultas de siempre y carga de datos desde facturas y
-                documentos, para que no tengas que copiar todo a mano.
+                Respuestas automáticas a las consultas de siempre y carga de datos desde facturas, para no copiar
+                todo a mano.
               </p>
             </li>
           </ul>
@@ -196,36 +216,32 @@
       </section>
 
       <!-- ================================================  RUBROS  ===== -->
-      <section class="section section--alt" id="rubros" aria-labelledby="rubros-title">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title" id="rubros-title" data-i18n="ideas.title">Ideas para tu negocio</h2>
-            <p class="section__lead" data-i18n="ideas.lead">
-              Algunos ejemplos de lo que se puede hacer. Si tu rubro no está, contame igual: casi siempre hay
-              una forma de ahorrar tiempo.
-            </p>
-          </header>
-
-          <ul class="cards cards--rubros">
-            <li class="card">
-              <h3 class="card__title" data-i18n="ideas.1_title">Restaurantes y bares</h3>
+      <section class="section section--tight" id="rubros" aria-labelledby="rubros-title">
+        <div class="pill-panel">
+          <h2 class="pill-panel__title" id="rubros-title" data-i18n="ideas.title">Ideas para tu negocio</h2>
+          <p class="pill-panel__lead" data-i18n="ideas.lead">
+            Si tu rubro no está, contame igual: casi siempre hay una forma de ahorrar tiempo.
+          </p>
+          <ul class="ideas">
+            <li>
+              <h3 data-i18n="ideas.1_title">Restaurantes y bares</h3>
               <p data-i18n="ideas.1_body">
                 Menú digital con QR, pedidos y reservas por WhatsApp o desde tu web, sin pagarle comisión a
                 ninguna aplicación.
               </p>
             </li>
-            <li class="card">
-              <h3 class="card__title" data-i18n="ideas.2_title">Comercios</h3>
+            <li>
+              <h3 data-i18n="ideas.2_title">Comercios</h3>
               <p data-i18n="ideas.2_body">
-                Ventas y stock en un mismo lugar, aviso cuando se está por acabar la mercadería y tu catálogo
-                online para vender también por internet.
+                Ventas y stock en un mismo lugar, aviso cuando se acaba la mercadería y tu catálogo online para
+                vender por internet.
               </p>
             </li>
-            <li class="card">
-              <h3 class="card__title" data-i18n="ideas.3_title">Consultorios y servicios</h3>
+            <li>
+              <h3 data-i18n="ideas.3_title">Consultorios y servicios</h3>
               <p data-i18n="ideas.3_body">
-                Turnos online que se agendan solos, con recordatorio automático por WhatsApp o mail para que
-                nadie se olvide.
+                Turnos online que se agendan solos, con recordatorio automático por WhatsApp para que nadie se
+                olvide.
               </p>
             </li>
           </ul>
@@ -236,136 +252,88 @@
       <section class="section" id="trabajos" aria-labelledby="trabajos-title">
         <div class="wrap">
           <header class="section__head">
-            <h2 class="section__title" id="trabajos-title" data-i18n="cases.title">Algunos trabajos</h2>
+            <p class="label">
+              <span class="spark" aria-hidden="true"></span> <span data-i18n="cases.label">Trabajos</span>
+            </p>
+            <h2 class="section__title" id="trabajos-title" data-i18n="cases.title">Algunas cosas que hice</h2>
           </header>
 
-          <!-- Destacado: Festivy -->
           <article class="feature">
             <div class="feature__body">
-              <p class="eyebrow eyebrow--on-dark" data-i18n="cases.festivy_tag">Producto propio</p>
+              <span class="badge badge--alt" data-i18n="cases.festivy_tag">Producto propio</span>
               <h3 class="feature__title">Festivy</h3>
               <p class="feature__text" data-i18n="cases.festivy_body">
-                Invitaciones digitales para casamientos, cumpleaños y cualquier festejo: se arman en minutos y
-                los invitados confirman asistencia desde el celular. La diseñé, la construí y la lancé yo, de
-                punta a punta.
+                Invitaciones digitales para casamientos, cumpleaños y cualquier festejo: se arman en minutos y los
+                invitados confirman desde el celular. La diseñé, la construí y la lancé yo.
               </p>
-              <p class="feature__actions">
-                <a class="btn btn--light" data-link="festivy" href="#" data-i18n="cases.festivy_cta"
-                  >Ver Festivy</a
-                >
-              </p>
+              <a class="btn btn--outline" data-link="festivy" href="#" target="_blank" rel="noopener"
+                ><span data-i18n="cases.festivy_cta">Ver Festivy</span> <span class="arrow" aria-hidden="true"></span
+              ></a>
             </div>
-            <figure class="feature__figure">
-              <img
-                data-img="festivy"
-                src="images/placeholders/festivy.svg"
-                width="1600"
-                height="1000"
-                loading="lazy"
-                alt="Captura de Festivy"
-                data-i18n-alt="cases.festivy_alt"
-              />
-            </figure>
+            <img
+              class="feature__img"
+              data-img="festivy"
+              src="images/casos/festivy.webp"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              alt="Captura de Festivy"
+              data-i18n-alt="cases.festivy_alt"
+            />
           </article>
 
-          <!-- Trabajos para empresas -->
           <div class="cases">
-            <article class="case">
-              <p class="eyebrow" data-i18n="cases.hb_sector">Hospital Británico · Salud</p>
-              <h3 class="case__title" data-i18n="cases.hb_title">
+            <article class="card case">
+              <p class="case__sector" data-i18n="cases.hb_sector">Hospital Británico · Salud</p>
+              <h3 class="card__title" data-i18n="cases.hb_title">
                 Renovar el sistema que les paga a los médicos, sin frenar la operación
               </h3>
-              <dl class="case__detail">
-                <dt data-i18n="cases.label_problem">El problema</dt>
-                <dd data-i18n="cases.hb_problem">
-                  Un sistema viejo, lento y difícil de mantener, del que dependía un proceso clave del hospital.
-                </dd>
-                <dt data-i18n="cases.label_solution">Qué hice</dt>
-                <dd data-i18n="cases.hb_solution">
-                  Lo rehíce con tecnología actual y aceleré las partes más pesadas, como único desarrollador.
-                </dd>
-                <dt data-i18n="cases.label_outcome">El resultado</dt>
-                <dd data-i18n="cases.hb_outcome">
-                  El cambio se hizo sin frenar la operación, y hoy el sistema es fácil de mantener y de mejorar.
-                </dd>
-              </dl>
+              <p data-i18n="cases.hb_body">
+                Un sistema viejo y lento, del que dependía un proceso clave. Lo rehíce con tecnología actual y hoy
+                es fácil de mantener.
+              </p>
             </article>
-
-            <article class="case">
-              <p class="eyebrow" data-i18n="cases.gr_sector">Grimoldi · Comercio</p>
-              <h3 class="case__title" data-i18n="cases.gr_title">
-                Las devoluciones trababan el sistema
-              </h3>
-              <dl class="case__detail">
-                <dt data-i18n="cases.label_problem">El problema</dt>
-                <dd data-i18n="cases.gr_problem">
-                  Cuando muchas sucursales hacían devoluciones al mismo tiempo, el sistema se trababa.
-                </dd>
-                <dt data-i18n="cases.label_solution">Qué hice</dt>
-                <dd data-i18n="cases.gr_solution">
-                  Encontré el origen del problema y reorganicé esa parte del sistema.
-                </dd>
-                <dt data-i18n="cases.label_outcome">El resultado</dt>
-                <dd data-i18n="cases.gr_outcome">
-                  Funciona más rápido y con menos errores, en un proceso que impacta directo en las ventas.
-                </dd>
-              </dl>
+            <article class="card case">
+              <p class="case__sector" data-i18n="cases.gr_sector">Grimoldi · Comercio</p>
+              <h3 class="card__title" data-i18n="cases.gr_title">Las devoluciones trababan el sistema</h3>
+              <p data-i18n="cases.gr_body">
+                Cuando muchas sucursales devolvían a la vez, todo se frenaba. Encontré el origen y ahora funciona
+                más rápido y con menos errores.
+              </p>
             </article>
-          </div>
-
-          <!-- Otros productos -->
-          <div class="others">
-            <h3 class="others__title" data-i18n="cases.others_title">Otros proyectos</h3>
-            <ul class="others__list">
-              <li>
-                <strong>Puestito</strong>
-                <span data-i18n="cases.puestito">tiendas online para que cualquier comercio venda por internet</span>
-              </li>
-              <li>
-                <strong>AdminConsorcio</strong>
-                <span data-i18n="cases.adminconsorcio">sistema de gestión para administradores de consorcios</span>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
 
       <!-- ==========================================  CÓMO TRABAJO  ===== -->
-      <section class="section section--dark" id="como-trabajo" aria-labelledby="como-title">
+      <section class="section" id="como-trabajo" aria-labelledby="como-title">
         <div class="wrap">
           <header class="section__head">
-            <h2 class="section__title" id="como-title" data-i18n="how.title">Cómo trabajamos</h2>
-            <p class="section__lead" data-i18n="how.lead">
-              Simple y sin sorpresas. Uso herramientas de inteligencia artificial para trabajar más rápido, y
-              eso se nota en los tiempos de entrega.
+            <p class="label">
+              <span class="spark" aria-hidden="true"></span> <span data-i18n="how.label">Cómo trabajamos</span>
             </p>
+            <h2 class="section__title" id="como-title" data-i18n="how.title">Simple y sin sorpresas</h2>
           </header>
 
           <ol class="steps">
             <li class="step">
               <span class="step__num" aria-hidden="true">01</span>
-              <h3 class="step__title" data-i18n="how.1_title">Charlamos.</h3>
-              <p data-i18n="how.1_body">
-                Me contás qué te pasa o qué querés lograr. La primera charla es gratis y sin compromiso.
-              </p>
+              <h3 class="step__title" data-i18n="how.1_title">Charlamos</h3>
+              <p data-i18n="how.1_body">Me contás qué te pasa o qué querés lograr. La primera charla es gratis.</p>
             </li>
             <li class="step">
               <span class="step__num" aria-hidden="true">02</span>
-              <h3 class="step__title" data-i18n="how.2_title">Te paso una propuesta.</h3>
-              <p data-i18n="how.2_body">
-                Qué vamos a hacer, cuánto cuesta y cuándo está listo. Claro y por escrito.
-              </p>
+              <h3 class="step__title" data-i18n="how.2_title">Te paso una propuesta</h3>
+              <p data-i18n="how.2_body">Qué vamos a hacer, cuánto cuesta y cuándo está listo. Claro y por escrito.</p>
             </li>
             <li class="step">
               <span class="step__num" aria-hidden="true">03</span>
-              <h3 class="step__title" data-i18n="how.3_title">Manos a la obra.</h3>
-              <p data-i18n="how.3_body">
-                Lo construyo y te voy mostrando avances, para que opines antes de que esté terminado.
-              </p>
+              <h3 class="step__title" data-i18n="how.3_title">Manos a la obra</h3>
+              <p data-i18n="how.3_body">Lo construyo y te muestro avances para que opines antes del final.</p>
             </li>
             <li class="step">
               <span class="step__num" aria-hidden="true">04</span>
-              <h3 class="step__title" data-i18n="how.4_title">Lo dejamos andando.</h3>
+              <h3 class="step__title" data-i18n="how.4_title">Lo dejamos andando</h3>
               <p data-i18n="how.4_body">Te enseño a usarlo y sigo a disposición para ajustes y soporte.</p>
             </li>
           </ol>
@@ -374,34 +342,34 @@
 
       <!-- ==============================================  SOBRE MÍ  ===== -->
       <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
-        <div class="wrap">
-          <header class="section__head">
-            <h2 class="section__title" id="sobre-mi-title" data-i18n="about.title">Sobre mí</h2>
-          </header>
-          <div class="about">
-            <p class="lead" data-i18n="about.p1">
-              Soy Leo. Hace más de 15 años que desarrollo sistemas para bancos, hospitales y grandes empresas.
-            </p>
-            <p class="lead" data-i18n="about.p2">
-              Hoy trabajo por mi cuenta, y quiero llevar esa experiencia a negocios como el tuyo: soluciones
-              serias, explicadas en criollo y pensadas para el tamaño de tu negocio.
-            </p>
-          </div>
+        <div class="wrap about">
+          <h2 class="label" id="sobre-mi-title">
+            <span class="spark" aria-hidden="true"></span> <span data-i18n="about.label">Sobre mí</span>
+          </h2>
+          <p class="about__text" data-i18n="about.text">
+            Soy Leo. Hace más de 15 años que hago sistemas para bancos, hospitales y grandes empresas.
+            <span class="muted">Hoy trabajo por mi cuenta y llevo esa experiencia a negocios como el tuyo, explicada en criollo.</span>
+          </p>
         </div>
       </section>
 
       <!-- ==============================================  CONTACTO  ===== -->
       <section class="contact" id="contacto" aria-labelledby="contacto-title">
-        <div class="wrap contact__inner">
-          <h2 class="contact__title" id="contacto-title" data-i18n="contact.title">
-            ¿Querés más clientes o menos trabajo manual? Hablemos.
+        <div class="wrap">
+          <h2 class="contact__title" id="contacto-title">
+            <span class="spark spark--accent" aria-hidden="true"></span>
+            <span data-i18n="contact.title">¿Hablamos?</span>
           </h2>
-          <div class="contact__actions">
-            <a class="btn btn--light btn--lg" data-link="whatsapp" href="#" target="_blank" rel="noopener"
-              ><span data-i18n="contact.cta_wa">Escribime por WhatsApp</span></a
-            >
+          <p class="contact__lead" data-i18n="contact.lead">
+            ¿Querés más clientes o menos trabajo manual? La primera charla es gratis y sin compromiso.
+          </p>
+          <div class="actions actions--center">
+            <a class="btn btn--accent btn--lg" data-link="whatsapp" href="#" target="_blank" rel="noopener"
+              ><span data-i18n="contact.cta_wa">Escribime por WhatsApp</span>
+              <span class="arrow" aria-hidden="true"></span
+            ></a>
             <a
-              class="btn btn--outline-light"
+              class="btn btn--outline btn--lg"
               data-link="booking"
               href="#"
               target="_blank"
@@ -409,11 +377,8 @@
               data-i18n="contact.cta_book"
               >Agendá una videollamada</a
             >
-            <a class="btn btn--outline-light" data-link="email" href="#">ledisalvo@gmail.com</a>
           </div>
-          <p class="contact__micro" data-i18n="contact.micro">
-            La primera charla es gratis y sin compromiso.
-          </p>
+          <p class="contact__email"><a data-link="email" href="#">ledisalvo@gmail.com</a></p>
         </div>
       </section>
     </main>
@@ -421,9 +386,7 @@
     <!-- ================================================  FOOTER  ===== -->
     <footer class="site-footer">
       <div class="wrap site-footer__inner">
-        <p class="site-footer__copy" data-i18n="footer.copy">
-          © 2026 Leonardo A. Di Salvo · Buenos Aires
-        </p>
+        <p class="site-footer__copy" data-i18n="footer.copy">© 2026 Leonardo A. Di Salvo · Buenos Aires</p>
         <nav class="site-footer__links" data-i18n-aria-label="footer.aria" aria-label="Enlaces y redes">
           <a data-link="linkedin" href="#">LinkedIn</a>
           <a data-link="github" href="https://github.com/ledisalvo">GitHub</a>
