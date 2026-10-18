@@ -19,6 +19,8 @@ window.SITE_CONFIG = {
   whatsappNumber: '5491155815805', // sin + ni espacios
 
   /* --- Email ------------------------------------------------------------- */
+  // Hoy no se muestra en la web (se sacó para no exponer el Gmail personal).
+  // Para volver a mostrarlo: un <a data-link="email"> en index.html.
   email: 'ledisalvo@gmail.com',
 
   /* --- Redes ------------------------------------------------------------- */
