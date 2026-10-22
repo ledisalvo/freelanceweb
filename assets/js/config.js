@@ -27,6 +27,29 @@ window.SITE_CONFIG = {
   linkedin: 'https://www.linkedin.com/in/leonardo-di-salvo/',
   github: 'https://github.com/ledisalvo',
 
+  /* --- Ámbar (caso de estudio destacado) --------------------------------- */
+  ambar: {
+    url: 'https://www.ambarperfumes.com.ar/',
+    // Antes y después: misma toma y mismo encuadre (960x1200), así el
+    // comparador los superpone sin que el frasco salte.
+    before: 'images/casos/ambar/antes.webp',
+    after: 'images/casos/ambar/despues.webp',
+    logo: 'images/casos/ambar/logo.webp',
+    label: 'images/casos/ambar/etiqueta.webp',
+    campaign: 'images/casos/ambar/campana.webp',
+  },
+
+  /* --- Precios de "Lanzá tu marca" --------------------------------------- */
+  // Texto tal cual se muestra (ej. 'USD 300', '$ 250.000'). Mientras un precio
+  // esté en PENDIENTE, su tarjeta muestra "A consultar" en lugar de "Desde …",
+  // así el sitio se puede publicar sin precios definidos.
+  pricing: {
+    brand: 'PENDIENTE',       // 01 · Marca lista
+    campaign: 'PENDIENTE',    // 02 · Marca + campaña
+    store: 'PENDIENTE',       // 03 · Marca + tienda
+    storeMonthly: 'PENDIENTE', // 03 · mantenimiento mensual de la tienda
+  },
+
   /* --- Festivy (caso destacado) ------------------------------------------ */
   festivy: {
     url: 'https://festivy.app/',

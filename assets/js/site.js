@@ -72,14 +72,17 @@
 
   /* --- Links ------------------------------------------------------------- */
 
-  function resolve(name) {
+  // `el` es el link que pide la URL: un botón de WhatsApp puede elegir su
+  // propio mensaje precargado con data-wa-msg="<clave de traducción>".
+  function resolve(name, el) {
     switch (name) {
       case 'booking':
         return CFG.booking;
       case 'whatsapp':
         return isPending(CFG.whatsappNumber)
           ? PENDING
-          : 'https://wa.me/' + CFG.whatsappNumber + '?text=' + encodeURIComponent(t('contact.wa_message'));
+          : 'https://wa.me/' + CFG.whatsappNumber + '?text=' +
+            encodeURIComponent(t((el && el.getAttribute('data-wa-msg')) || 'contact.wa_message'));
       case 'email':
         return isPending(CFG.email) ? PENDING : 'mailto:' + CFG.email;
       case 'linkedin':
@@ -88,6 +91,8 @@
         return CFG.github;
       case 'festivy':
         return CFG.festivy && CFG.festivy.url;
+      case 'ambar':
+        return CFG.ambar && CFG.ambar.url;
       case 'cv':
         return (CFG.cv && CFG.cv[lang]) || (CFG.cv && CFG.cv[DEFAULT_LANG]);
       default:
@@ -97,7 +102,7 @@
 
   function applyLinks() {
     document.querySelectorAll('[data-link]').forEach(function (el) {
-      var url = resolve(el.getAttribute('data-link'));
+      var url = resolve(el.getAttribute('data-link'), el);
       var note = el.querySelector('.pending-note');
 
       if (isPending(url)) {
@@ -127,6 +132,11 @@
     var map = {
       hero: CFG.heroImage,
       festivy: CFG.festivy && CFG.festivy.image,
+      ambar_before: CFG.ambar && CFG.ambar.before,
+      ambar_after: CFG.ambar && CFG.ambar.after,
+      ambar_logo: CFG.ambar && CFG.ambar.logo,
+      ambar_label: CFG.ambar && CFG.ambar.label,
+      ambar_campaign: CFG.ambar && CFG.ambar.campaign,
     };
 
     Object.keys(map).forEach(function (key) {
@@ -138,6 +148,54 @@
       el.removeAttribute('width');
       el.removeAttribute('height');
     });
+  }
+
+  /* --- Precios de "Lanzá tu marca" -------------------------------------- */
+  // Sin precio cargado (PENDIENTE), la tarjeta dice "A consultar" y esconde
+  // el "Desde" y el mantenimiento mensual.
+
+  function applyPrices() {
+    var pricing = CFG.pricing || {};
+    document.querySelectorAll('[data-price]').forEach(function (el) {
+      var value = pricing[el.getAttribute('data-price')];
+      var ask = isPending(value);
+      el.classList.toggle('is-ask', ask);
+
+      var amount = el.querySelector('.plan__amount');
+      if (amount) amount.textContent = ask ? t('brand.price_ask') : value;
+
+      var monthly = el.querySelector('[data-price-monthly]');
+      if (monthly) {
+        var monthlyValue = pricing[monthly.getAttribute('data-price-monthly')];
+        monthly.hidden = ask || isPending(monthlyValue);
+        if (!monthly.hidden) monthly.textContent = t('brand.monthly').replace('{price}', monthlyValue);
+      }
+    });
+  }
+
+  /* --- Comparador antes / después ---------------------------------------- */
+  // El <input type="range"> es el control real (teclado, lector de pantalla);
+  // su valor mueve --pos, que recorta la foto del después y ubica la línea.
+
+  var compares = [];
+
+  function syncCompare(box) {
+    var input = box.querySelector('input[type="range"]');
+    box.style.setProperty('--pos', input.value + '%');
+    input.setAttribute('aria-valuetext', t('ambar.compare_value').replace('{n}', input.value));
+  }
+
+  document.querySelectorAll('[data-compare]').forEach(function (box) {
+    var input = box.querySelector('input[type="range"]');
+    if (!input) return;
+    compares.push(box);
+    input.addEventListener('input', function () {
+      syncCompare(box);
+    });
+  });
+
+  function applyCompares() {
+    compares.forEach(syncCompare);
   }
 
   /* --- Logos de empresas ------------------------------------------------- */
@@ -183,6 +241,8 @@
     applyLinks();
     applyImages();
     applyCompanies();
+    applyPrices();
+    applyCompares();
     applyLangButtons();
     syncToggleLabel();
   }

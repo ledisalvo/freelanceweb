@@ -43,17 +43,20 @@ index.html                     una sola página, HTML semántico, copy ES inline
 assets/css/site.css            sistema visual (tokens en :root) + componentes
 assets/css/fonts.css           @font-face de Manrope (self-hosted)
 assets/fonts/manrope-*.woff2   Manrope variable, subsets latin y latin-ext
+assets/fonts/fraunces-*.woff2  Fraunces cursiva 300 (solo los remates dorados)
 assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
 assets/js/site.js              i18n, links, logos, menú, agenda Cal.com
 images/leo-bn.webp             retrato del hero (recorte B/N, fondo transparente)
 images/empresas/               logos de empresas (SVG/PNG transparentes)
 images/casos/festivy.webp      captura de Festivy
+images/casos/ambar/           caso Ámbar: antes, después, logo, etiqueta, campaña
 images/og-v4.png               imagen Open Graph
 ```
 
-Orden de secciones: Nav → Hero → Experiencia (logos) → Qué hago → Ideas por
-rubro → Trabajos → Cómo trabajamos → Sobre mí → Contacto → Footer.
+Orden de secciones: Nav → Hero → Experiencia (logos) → Qué hago → Lanzá tu
+marca → Ideas por rubro → Trabajos (Ámbar, Festivy, casos) → Cómo trabajamos →
+Sobre mí → Contacto → Footer.
 
 ## Sistema visual
 
@@ -61,6 +64,11 @@ Inspirado en la plantilla Rayo: fondo casi negro (`#141414`), tarjetas
 `#1E1E1E` muy redondeadas, botones en píldora, un único acento **lima**
 (`#DDF26B`) y un violeta (`#B3A6FF`) reservado para badges. Manrope en todo el
 sitio: titulares en peso 500 con interletrado negativo, cuerpo en 400.
+
+Todo lo que tiene que ver con **marcas propias** ("Lanzá tu marca" y el caso
+Ámbar) suma un segundo acento: **dorado** (`#E3BE82`) y **Fraunces cursiva
+300** (`.serif-accent`) para los remates, más un botón claro (`.btn--light`)
+como CTA principal. El lima sigue siendo el acento del resto del sitio.
 
 Gestos propios del sistema:
 
@@ -90,6 +98,26 @@ está escrito en el HTML.
 HTML trae el texto en español inline solo para que la página se vea bien si el JS
 todavía no cargó; la fuente de verdad son las traducciones. Algunos valores
 llevan HTML a propósito (`.hl`, `.spark`, `.muted`).
+
+### Precios de "Lanzá tu marca"
+
+En `config.pricing` (`brand`, `campaign`, `store` y `storeMonthly`), como
+texto tal cual se muestra (`'USD 300'`, `'$ 250.000'`). Mientras un precio esté
+en `PENDIENTE`, su tarjeta dice **"A consultar"** y esconde el "Desde" y el
+mantenimiento mensual, así el sitio se publica sin precios definidos.
+
+Los botones de cada plan y el "Quiero esto para mi marca" de Ámbar abren
+WhatsApp con su propio mensaje: el atributo `data-wa-msg` nombra la clave de
+traducción del texto precargado.
+
+### Comparador antes/después (Ámbar)
+
+Las dos fotos se superponen y la del después se recorta con
+`clip-path: inset(0 0 0 var(--pos))`. El control es un `<input type="range">`
+real con `<label>`: funciona con mouse, dedo y teclado (flechas), y `site.js`
+actualiza `--pos` y el `aria-valuetext` ("Mostrando 70 % del después"). Sin JS
+queda mitad y mitad. Si se cambian las fotos, tienen que ser la misma toma con
+el mismo encuadre, o el frasco salta al deslizar.
 
 ### Placeholders
 
@@ -155,7 +183,13 @@ oscuro, octubre 2026):
 - links de WhatsApp y Cal.com (los dos botones) resueltos desde la config
   (el mail ya no se muestra en la página); ningún placeholder pendiente; los 6 logos cargados;
 - el botón de agenda abre el modal de Cal.com;
-- las 77 claves de texto usadas en el HTML existen en ES y EN.
+- comparador de Ámbar: nombre accesible desde el label, 20 flechas a la
+  derecha llevan el valor de 50 a 70, recortan la foto al 70 % y actualizan
+  el `aria-valuetext` (también en EN);
+- cada CTA de planes y de Ámbar precarga su propio mensaje de WhatsApp;
+  "Ver el caso completo" abre ambarperfumes.com.ar en otra pestaña;
+- sin precios cargados, los tres planes muestran "A consultar";
+- las 136 claves de texto usadas (HTML y JS) existen en ES y EN.
 
 Lighthouse no se volvió a medir después del rediseño. Para hacerlo:
 
