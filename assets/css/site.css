@@ -23,6 +23,7 @@
   --color-accent: #ddf26b;       /* lima: único acento */
   --color-accent-hover: #e9f99a;
   --color-alt: #b3a6ff;          /* violeta: solo en badges */
+  --color-gold: #e3be82;         /* dorado: marca propia (Ámbar, Lanzá tu marca) */
   --color-on-accent: #141414;
   --color-light: #f4f1ec;        /* bloque claro en píldora */
   --color-light-text: #141414;
@@ -30,6 +31,7 @@
 
   /* Tipografía */
   --font: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif; /* solo cursiva 300 */
 
   /* Forma */
   --radius-card: 28px;
@@ -50,6 +52,7 @@
 
   /* Íconos dibujados con mask: estrellita de 4 puntas y flecha ↗ */
   --icon-spark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C12.6 7.2 16.8 11.4 24 12 16.8 12.6 12.6 16.8 12 24 11.4 16.8 7.2 12.6 0 12 7.2 11.4 11.4 7.2 12 0Z'/%3E%3C/svg%3E");
+  --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");
   --icon-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E");
 }
 
@@ -821,6 +824,405 @@ section[id] {
 
 .muted {
   color: var(--color-text-muted);
+}
+
+/* ===========================================================================
+   MARCA PROPIA: piezas compartidas por "Lanzá tu marca" y el caso Ámbar.
+   El dorado y la Fraunces cursiva aparecen solo acá: es el acento de lo que
+   tiene que ver con marcas, no reemplaza al lima del resto del sitio.
+   =========================================================================== */
+
+/* Remate en cursiva dorada: "Yo me encargo del resto." */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--color-gold);
+}
+
+.badge--gold {
+  background: var(--color-gold);
+  color: var(--color-on-accent);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Botón claro: el CTA principal dentro de bloques donde el lima competiría
+   con el dorado. */
+.btn--light {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.btn--light:hover {
+  background: #ffffff;
+}
+
+/* ===========================================================================
+   LANZÁ TU MARCA: encabezado + tres planes
+   =========================================================================== */
+
+.brand__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+  margin-bottom: 40px;
+}
+
+.brand__intro {
+  flex: 1 1 560px;
+  max-width: 780px;
+  min-width: 0;
+}
+
+.brand__title {
+  margin-top: 14px;
+  font-size: clamp(44px, 5.4vw, 76px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.brand__title > span {
+  display: block;
+}
+
+.brand__lead {
+  margin-top: 18px;
+  font-size: clamp(17px, 1.4vw, 19px);
+  color: var(--color-text-secondary);
+}
+
+.brand__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: clamp(28px, 3vw, 36px);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.plan--featured {
+  border-color: var(--color-gold);
+}
+
+.plan__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+}
+
+.plan__num {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+}
+
+.plan__name {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.plan__desc {
+  color: var(--color-text-secondary);
+}
+
+.plan__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--color-text);
+}
+
+/* Empuja precio y botón al pie: las tres tarjetas cierran a la misma altura. */
+.plan__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+}
+
+.plan__from {
+  flex-basis: 100%;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.plan__amount {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.plan__monthly {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+/* Sin precio cargado: "A consultar", sin "Desde". */
+.plan__price.is-ask .plan__from {
+  display: none;
+}
+
+.plan__price.is-ask .plan__amount {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.plan .btn {
+  width: 100%;
+}
+
+/* ===========================================================================
+   CASO ÁMBAR: comparador antes/después + detalle
+   =========================================================================== */
+
+.feature + .feature {
+  margin-top: 16px;
+}
+
+/* Si se llega por ancla (#caso-ambar), que el header fijo no lo tape. */
+.feature[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.feature__tagline {
+  margin-top: 18px;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.2;
+}
+
+.feature--case .feature__title {
+  margin-top: 18px;
+}
+
+.feature--case .feature__text {
+  margin-bottom: 24px;
+}
+
+/* --- Comparador ---------------------------------------------------------- */
+.compare {
+  --pos: 50%;
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.compare__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #0e0e0e;
+}
+
+.compare__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* El después se recorta desde la izquierda hasta --pos */
+.compare__img--after {
+  clip-path: inset(0 0 0 var(--pos));
+}
+
+.compare__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  background: var(--color-gold);
+  transform: translateX(-1px);
+}
+
+.compare__handle {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: translate(-50%, -50%);
+}
+
+/* Flechas ↔ dibujadas con dos triángulos */
+.compare__handle::before,
+.compare__handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  border: 6px solid transparent;
+  transform: translateY(-50%);
+}
+
+.compare__handle::before {
+  left: 7px;
+  border-right-color: var(--color-on-accent);
+}
+
+.compare__handle::after {
+  right: 7px;
+  border-left-color: var(--color-on-accent);
+}
+
+.compare__tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  background: rgb(20 20 20 / 78%);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.compare__tag--after {
+  left: auto;
+  right: 16px;
+  background: var(--color-gold);
+  color: var(--color-on-accent);
+}
+
+/* Control real: un input range con estilo propio (pista oscura, botón dorado) */
+.compare__control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.compare__control input {
+  width: 100%;
+  min-height: var(--tap-min);
+  margin: 0;
+  background: transparent;
+  accent-color: var(--color-gold);
+  cursor: ew-resize;
+  appearance: none;
+}
+
+.compare__control input::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-line-strong);
+}
+
+.compare__control input::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  margin-top: -9px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-gold);
+  appearance: none;
+}
+
+.compare__control input::-moz-range-track {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-line-strong);
+}
+
+.compare__control input::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.compare__control input:focus-visible {
+  outline-color: var(--color-gold);
+}
+
+/* --- Checklist y miniaturas --------------------------------------------- */
+.checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 24px;
+  margin-bottom: 24px;
+}
+
+.checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 4px;
+  background: var(--color-gold);
+  mask: var(--icon-check) center / contain no-repeat;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.thumbs figure {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thumbs img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.thumbs .thumbs__top {
+  object-position: top;
+}
+
+.thumbs figcaption {
+  font-size: 13px;
+  color: var(--color-text-secondary);
 }
 
 /* ===========================================================================
