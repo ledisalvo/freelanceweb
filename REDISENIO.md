@@ -152,8 +152,8 @@ oscuro, octubre 2026):
 - render completo a 1440 px y a 390 px; sin scroll horizontal en 390 px;
 - menú: abre (`aria-expanded="true"`), muestra el panel y cierra con Escape;
 - switch ES/EN: cambia titular y mensaje de WhatsApp;
-- links de WhatsApp, Cal.com (los dos botones) y mail resueltos desde la
-  config; ningún placeholder pendiente; los 6 logos cargados;
+- links de WhatsApp y Cal.com (los dos botones) resueltos desde la config
+  (el mail ya no se muestra en la página); ningún placeholder pendiente; los 6 logos cargados;
 - el botón de agenda abre el modal de Cal.com;
 - las 77 claves de texto usadas en el HTML existen en ES y EN.
 

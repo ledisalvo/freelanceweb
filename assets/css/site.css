@@ -860,22 +860,6 @@ section[id] {
   margin-top: 40px;
 }
 
-.contact__email {
-  margin-top: 28px;
-}
-
-.contact__email a {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  color: var(--color-text-secondary);
-  text-underline-offset: 4px;
-}
-
-.contact__email a:hover {
-  color: var(--color-text);
-}
-
 /* ===========================================================================
    FOOTER
    =========================================================================== */
