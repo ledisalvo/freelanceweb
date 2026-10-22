@@ -48,15 +48,19 @@ assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
 assets/js/site.js              i18n, links, logos, menú, agenda Cal.com
 images/leo-bn.webp             retrato del hero (recorte B/N, fondo transparente)
-images/empresas/               logos de empresas (SVG/PNG transparentes)
 images/casos/festivy.webp      captura de Festivy
 images/casos/ambar/           caso Ámbar: antes, después, logo, etiqueta, campaña
 images/og-v4.png               imagen Open Graph
 ```
 
-Orden de secciones: Nav → Hero → Experiencia (logos) → Qué hago → Lanzá tu
-marca → Ideas por rubro → Trabajos (Ámbar, Festivy, casos) → Cómo trabajamos →
+Orden de secciones: Nav → Hero → Experiencia (una línea de texto) → Qué hago →
+Lanzá tu marca → Ideas por rubro → Trabajos (Ámbar, Festivy) → Cómo trabajamos →
 Sobre mí → Contacto → Footer.
+
+Sin logos de empresas ni casos de clientes de cuando trabajaba en relación de
+dependencia: la experiencia se cuenta en una frase ("bancos, salud y
+comercio"). Sin testimonios: solo se publican resultados reales y propios
+(los de Ámbar).
 
 ## Sistema visual
 
@@ -65,10 +69,12 @@ Inspirado en la plantilla Rayo: fondo casi negro (`#141414`), tarjetas
 (`#DDF26B`) y un violeta (`#B3A6FF`) reservado para badges. Manrope en todo el
 sitio: titulares en peso 500 con interletrado negativo, cuerpo en 400.
 
-Todo lo que tiene que ver con **marcas propias** ("Lanzá tu marca" y el caso
-Ámbar) suma un segundo acento: **dorado** (`#E3BE82`) y **Fraunces cursiva
-300** (`.serif-accent`) para los remates, más un botón claro (`.btn--light`)
-como CTA principal. El lima sigue siendo el acento del resto del sitio.
+**Regla de la marca de un cliente:** la interfaz del sitio (botones, badges,
+checks, tarjetas de planes) es siempre lima, con un solo tipo de botón
+principal. Los colores y la tipografía de un cliente aparecen **solo dentro de
+su caso**: en Ámbar, el **dorado** (`#E3BE82`) del comparador y su subtítulo en
+**Fraunces cursiva 300** (`.serif-accent`, entre comillas: es la voz de esa
+marca). Si se suma otro caso de marca, se usan sus colores, no el dorado.
 
 Gestos propios del sistema:
 
@@ -102,9 +108,12 @@ llevan HTML a propósito (`.hl`, `.spark`, `.muted`).
 ### Precios de "Lanzá tu marca"
 
 En `config.pricing` (`brand`, `campaign`, `store` y `storeMonthly`), como
-texto tal cual se muestra (`'USD 300'`, `'$ 250.000'`). Mientras un precio esté
-en `PENDIENTE`, su tarjeta dice **"A consultar"** y esconde el "Desde" y el
-mantenimiento mensual, así el sitio se publica sin precios definidos.
+texto tal cual se muestra. Hoy: Marca lista **$390.000**, Marca + campaña
+**$650.000**, Marca + tienda **$1.450.000** más **$60.000** por mes de
+mantenimiento. Los planes 2 y 3 muestran además "o 3 cuotas sin interés"
+(`brand.installments` en las traducciones). Si un precio vuelve a
+`PENDIENTE`, su tarjeta dice **"A consultar"** y esconde el "Desde", las cuotas
+y el mantenimiento.
 
 Los botones de cada plan y el "Quiero esto para mi marca" de Ámbar abren
 WhatsApp con su propio mensaje: el atributo `data-wa-msg` nombra la clave de
@@ -126,16 +135,11 @@ elemento en estado placeholder visible (borde punteado y "(link pendiente de
 configurar)"), así no se publica algo roto sin darse cuenta. Hoy no queda
 ninguno.
 
-### Logos de empresas
+### Resultados de Ámbar
 
-Se cargan desde `config.companies`; sin `logo`, la empresa sale como nombre en
-texto con el mismo tono. El archivo tiene que ser **SVG o PNG con fondo
-transparente**: el CSS los aplana a gris claro con
-`grayscale(1) contrast(0) brightness(1.5)`, que conserva la forma por el canal
-alfa; un logo con fondo opaco se vería como un rectángulo gris.
-
-Pendiente de Leo: confirmar que el contrato con la consultora permite mostrar
-los logos de Grimoldi y Telmex.
+Debajo del texto del caso, en recuadros (`.stats`): **80** seguidores orgánicos
+en 2 semanas sin publicidad paga, y ventas de **4 → 10** por semana. La flecha
+es visual; el lector de pantalla oye "De 4 a 10" (`.sr-only`).
 
 ### Retrato del hero
 
@@ -181,15 +185,19 @@ oscuro, octubre 2026):
 - menú: abre (`aria-expanded="true"`), muestra el panel y cierra con Escape;
 - switch ES/EN: cambia titular y mensaje de WhatsApp;
 - links de WhatsApp y Cal.com (los dos botones) resueltos desde la config
-  (el mail ya no se muestra en la página); ningún placeholder pendiente; los 6 logos cargados;
+  (el mail ya no se muestra en la página); ningún placeholder pendiente;
 - el botón de agenda abre el modal de Cal.com;
 - comparador de Ámbar: nombre accesible desde el label, 20 flechas a la
   derecha llevan el valor de 50 a 70, recortan la foto al 70 % y actualizan
   el `aria-valuetext` (también en EN);
 - cada CTA de planes y de Ámbar precarga su propio mensaje de WhatsApp;
   "Ver el caso completo" abre ambarperfumes.com.ar en otra pestaña;
-- sin precios cargados, los tres planes muestran "A consultar";
-- las 136 claves de texto usadas (HTML y JS) existen en ES y EN.
+- precios: "Desde $390.000", "Desde $650.000 / o 3 cuotas sin interés" y
+  "Desde $1.450.000 / o 3 cuotas sin interés / + $60.000 por mes de
+  mantenimiento" (y su versión en EN);
+- sin logos ni casos de Hospital Británico y Grimoldi en el DOM; los dos
+  resultados de Ámbar visibles;
+- las 134 claves de texto usadas (HTML y JS) existen en ES y EN.
 
 Lighthouse no se volvió a medir después del rediseño. Para hacerlo:
 

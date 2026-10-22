@@ -23,7 +23,7 @@
   --color-accent: #ddf26b;       /* lima: único acento */
   --color-accent-hover: #e9f99a;
   --color-alt: #b3a6ff;          /* violeta: solo en badges */
-  --color-gold: #e3be82;         /* dorado: marca propia (Ámbar, Lanzá tu marca) */
+  --color-gold: #e3be82;         /* dorado: identidad de Ámbar, solo dentro de su caso */
   --color-on-accent: #141414;
   --color-light: #f4f1ec;        /* bloque claro en píldora */
   --color-light-text: #141414;
@@ -143,6 +143,15 @@ a {
 
 section[id] {
   scroll-margin-top: var(--header-h);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* ===========================================================================
@@ -559,44 +568,14 @@ section[id] {
   height: 0.5em;
 }
 
+/* Una sola línea, con peso de frase (como "Sobre mí"), en lugar de logos. */
 .companies__label {
-  margin: 40px 0 24px;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--color-text-secondary);
-}
-
-.companies__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-}
-
-.companies__grid li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 112px;
-  border-radius: var(--radius-tile);
-  background: var(--color-surface);
-}
-
-/* Sin logo: el nombre en texto, con el mismo tono que los logos */
-.companies__grid span {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-}
-
-/* Con logo: grayscale + contrast(0) aplana cualquier color a un gris
-   uniforme (la forma sale del canal alfa); el brillo lo lleva a gris claro.
-   Alto y ancho máximos juntos equilibran isotipos y wordmarks anchos. */
-.companies__logo {
-  width: auto;
-  height: auto;
-  max-height: 36px;
-  max-width: 64%;
-  filter: grayscale(1) contrast(0) brightness(1.5);
+  max-width: 900px;
+  margin-top: 40px;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 /* ===========================================================================
@@ -751,25 +730,6 @@ section[id] {
   border-radius: 20px;
 }
 
-.cases {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.case {
-  padding: 32px;
-}
-
-.case__sector {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-}
-
 /* --- Pasos --------------------------------------------------------------- */
 .steps {
   display: grid;
@@ -827,12 +787,14 @@ section[id] {
 }
 
 /* ===========================================================================
-   MARCA PROPIA: piezas compartidas por "Lanzá tu marca" y el caso Ámbar.
-   El dorado y la Fraunces cursiva aparecen solo acá: es el acento de lo que
-   tiene que ver con marcas, no reemplaza al lima del resto del sitio.
+   MARCA DE UN CLIENTE
+   Regla: la interfaz del sitio (botones, badges, checks, planes) es siempre
+   lima. El dorado y la Fraunces cursiva son la identidad de Ámbar y viven
+   solo DENTRO de su caso: el comparador (sus fotos) y su subtítulo. Si se
+   suma otro caso de marca, se usan los colores de esa marca, no el dorado.
    =========================================================================== */
 
-/* Remate en cursiva dorada: "Yo me encargo del resto." */
+/* Subtítulo del caso, en la voz de la marca del cliente */
 .serif-accent {
   font-family: var(--font-serif);
   font-style: italic;
@@ -841,26 +803,10 @@ section[id] {
   color: var(--color-gold);
 }
 
-.badge--gold {
-  background: var(--color-gold);
-  color: var(--color-on-accent);
-}
-
 .badges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
-
-/* Botón claro: el CTA principal dentro de bloques donde el lima competiría
-   con el dorado. */
-.btn--light {
-  background: var(--color-text);
-  color: var(--color-bg);
-}
-
-.btn--light:hover {
-  background: #ffffff;
 }
 
 /* ===========================================================================
@@ -890,10 +836,6 @@ section[id] {
   letter-spacing: -0.03em;
 }
 
-.brand__title > span {
-  display: block;
-}
-
 .brand__lead {
   margin-top: 18px;
   font-size: clamp(17px, 1.4vw, 19px);
@@ -903,9 +845,15 @@ section[id] {
 .brand__facts {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   font-size: 15px;
   color: var(--color-text-secondary);
+}
+
+.brand__facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .plans {
@@ -917,15 +865,15 @@ section[id] {
 .plan {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: clamp(28px, 3vw, 36px);
-  border: 1px solid var(--color-line);
+  gap: 18px;
+  padding: clamp(28px, 3vw, 32px);
   border-radius: var(--radius-card);
   background: var(--color-surface);
 }
 
+/* Destacado: contorno lima (sin borde fino en el resto, como las otras tarjetas) */
 .plan--featured {
-  border-color: var(--color-gold);
+  box-shadow: inset 0 0 0 2px var(--color-accent);
 }
 
 .plan__top {
@@ -935,15 +883,19 @@ section[id] {
   min-height: 30px;
 }
 
+/* Números grandes en lima, como los pasos de "Cómo trabajamos" */
 .plan__num {
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  color: var(--color-text-secondary);
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
 }
 
 .plan__name {
-  font-size: 32px;
-  font-weight: 500;
+  margin-top: 6px;
+  font-size: 30px;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -982,13 +934,17 @@ section[id] {
   line-height: 1.15;
 }
 
+/* Cuotas y mantenimiento: cada uno en su renglón, debajo del precio */
+.plan__note,
 .plan__monthly {
-  font-size: 16px;
+  flex-basis: 100%;
+  font-size: 15px;
   color: var(--color-text-secondary);
 }
 
-/* Sin precio cargado: "A consultar", sin "Desde". */
-.plan__price.is-ask .plan__from {
+/* Sin precio cargado: "A consultar", sin "Desde" ni cuotas. */
+.plan__price.is-ask .plan__from,
+.plan__price.is-ask .plan__note {
   display: none;
 }
 
@@ -1018,6 +974,46 @@ section[id] {
   margin-top: 18px;
   font-size: clamp(26px, 2.6vw, 34px);
   line-height: 1.2;
+}
+
+/* Entre comillas: es la voz de la marca del cliente, no la del sitio. */
+.feature__tagline::before {
+  content: '“';
+}
+
+.feature__tagline::after {
+  content: '”';
+}
+
+/* --- Resultados del caso --------------------------------------------------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: var(--color-bg);
+}
+
+.stats__value {
+  font-size: clamp(36px, 3.4vw, 48px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+}
+
+.stats__label {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
 }
 
 .feature--case .feature__title {
@@ -1192,7 +1188,7 @@ section[id] {
   height: 18px;
   flex: none;
   margin-top: 4px;
-  background: var(--color-gold);
+  background: var(--color-accent);
   mask: var(--icon-check) center / contain no-repeat;
 }
 
