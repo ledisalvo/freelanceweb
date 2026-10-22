@@ -871,6 +871,30 @@ section[id] {
   background: var(--color-surface);
 }
 
+/* Las tres tarjetas comparten filas (subgrid): número, nombre, descripción,
+   lista, precio y botón toman la altura del más alto de los tres, así la
+   línea, el "Desde", el precio y el botón quedan alineados entre tarjetas.
+   Sin subgrid, queda el flex de arriba (precio y botón empujados al pie). */
+@supports (grid-template-rows: subgrid) {
+  .plans {
+    row-gap: 16px;
+  }
+
+  .plan {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 18px;
+  }
+
+  /* La fila ya es la misma en las tres: el precio arranca arriba de su fila
+     (con margin-top: auto se iría al fondo y las líneas no coincidirían). */
+  .plans .plan__price {
+    margin-top: 0;
+    align-content: start;
+  }
+}
+
 /* Destacado: contorno lima (sin borde fino en el resto, como las otras tarjetas) */
 .plan--featured {
   box-shadow: inset 0 0 0 2px var(--color-accent);
