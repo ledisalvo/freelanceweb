@@ -37,14 +37,14 @@ window.TRANSLATIONS = {
     /* --- Hero ------------------------------------------------------------ */
     'hero.kicker':      'Tecnología para comercios y pymes · Buenos Aires',
     'hero.title':       'Más clientes y <span class="hl">menos trabajo</span> repetitivo <span class="spark" aria-hidden="true"></span> para tu negocio.',
-    'hero.lead':        'Te ayudo a que tu negocio se vea y se encuentre en internet, y a automatizar las tareas que hoy hacés a mano. Ganás tiempo, bajás costos y te dedicás a lo que importa.',
+    'hero.lead':        'Te ayudo a que tu negocio se vea y se encuentre en internet, a automatizar las tareas que hoy hacés a mano. Ganás tiempo, bajás costos y te dedicás a lo que importa.',
     'hero.cta_primary': 'Escribime por WhatsApp',
     'hero.cta_secondary': 'Agendá una videollamada',
     'hero.photo_alt':   'Retrato de Leonardo Di Salvo',
 
     /* --- Experiencia ----------------------------------------------------- */
     'companies.marquee': 'Experiencia',
-    'companies.label':   'Más de 15 años haciendo sistemas para empresas como',
+    'companies.label':   'Más de 15 años haciendo sistemas para bancos, salud y comercio',
 
     /* --- Qué hago -------------------------------------------------------- */
     'services.label':   'Qué hago',
@@ -72,7 +72,8 @@ window.TRANSLATIONS = {
     'brand.featured':     'El más elegido',
     'brand.from':         'Desde',
     'brand.price_ask':    'A consultar',
-    'brand.monthly':      '+ {price}/mes',
+    'brand.monthly':      '+ {price} por mes de mantenimiento',
+    'brand.installments': 'o 3 cuotas sin interés',
     'brand.cta_ask':      'Consultar',
     'brand.cta_featured': 'Quiero lanzar mi marca',
     'brand.1_name':       'Marca lista',
@@ -116,6 +117,9 @@ window.TRANSLATIONS = {
     'ambar.tag_meta':      'Marca propia · 2 semanas',
     'ambar.tagline':       'De un frasco genérico a una marca lista para vender.',
     'ambar.body':          'Un emprendimiento propio de fragancias que arranqué de cero. Le di nombre, identidad, packaging, campaña y tienda online, y lo puse a vender en dos semanas. Es lo mismo que puedo hacer por tu marca.',
+    'ambar.stat_1':        'seguidores orgánicos en 2 semanas, sin publicidad paga',
+    'ambar.stat_2':        'ventas por semana',
+    'ambar.stat_2_sr':     'De 4 a 10',
     'ambar.check_1':       'Nombre, logo y paleta',
     'ambar.check_2':       'Etiquetas listas para imprenta',
     'ambar.check_3':       'Fotos, posts y reel de campaña',
@@ -139,12 +143,6 @@ window.TRANSLATIONS = {
     'cases.festivy_body':  'Invitaciones digitales para casamientos, cumpleaños y cualquier festejo: se arman en minutos y los invitados confirman desde el celular. La diseñé, la construí y la lancé yo.',
     'cases.festivy_cta':   'Ver Festivy',
     'cases.festivy_alt':   'Captura de Festivy',
-    'cases.hb_sector':     'Hospital Británico · Salud',
-    'cases.hb_title':      'Renovar el sistema que les paga a los médicos, sin frenar la operación',
-    'cases.hb_body':       'Un sistema viejo y lento, del que dependía un proceso clave. Lo rehíce con tecnología actual y hoy es fácil de mantener.',
-    'cases.gr_sector':     'Grimoldi · Comercio',
-    'cases.gr_title':      'Las devoluciones trababan el sistema',
-    'cases.gr_body':       'Cuando muchas sucursales devolvían a la vez, todo se frenaba. Encontré el origen y ahora funciona más rápido y con menos errores.',
 
     /* --- Cómo trabajamos ------------------------------------------------- */
     'how.label':    'Cómo trabajamos',
@@ -199,14 +197,14 @@ window.TRANSLATIONS = {
     /* --- Hero ------------------------------------------------------------ */
     'hero.kicker':      'Technology for shops and small businesses · Buenos Aires',
     'hero.title':       'More customers and <span class="hl">less repetitive</span> work <span class="spark" aria-hidden="true"></span> for your business.',
-    'hero.lead':        'I help your business get seen and found online, and automate the tasks you do by hand. You save time, cut costs and focus on what matters.',
+    'hero.lead':        'I help your business get seen and found online and automate the tasks you do by hand. You save time, cut costs and focus on what matters.',
     'hero.cta_primary': 'Message me on WhatsApp',
     'hero.cta_secondary': 'Book a video call',
     'hero.photo_alt':   'Portrait of Leonardo Di Salvo',
 
     /* --- Experience ------------------------------------------------------ */
     'companies.marquee': 'Experience',
-    'companies.label':   '15+ years building systems for companies like',
+    'companies.label':   '15+ years building systems for banking, healthcare and retail',
 
     /* --- What I do ------------------------------------------------------- */
     'services.label':   'What I do',
@@ -234,7 +232,8 @@ window.TRANSLATIONS = {
     'brand.featured':     'Most popular',
     'brand.from':         'From',
     'brand.price_ask':    'Ask for a quote',
-    'brand.monthly':      '+ {price}/month',
+    'brand.monthly':      '+ {price} a month for maintenance',
+    'brand.installments': 'or 3 interest-free installments',
     'brand.cta_ask':      'Ask',
     'brand.cta_featured': 'I want to launch my brand',
     'brand.1_name':       'Ready brand',
@@ -278,6 +277,9 @@ window.TRANSLATIONS = {
     'ambar.tag_meta':      'Own brand · 2 weeks',
     'ambar.tagline':       'From a generic bottle to a brand ready to sell.',
     'ambar.body':          'A fragrance business of my own that I started from scratch. I gave it a name, an identity, packaging, a campaign and an online store, and had it selling in two weeks. I can do the same for your brand.',
+    'ambar.stat_1':        'organic followers in 2 weeks, no paid ads',
+    'ambar.stat_2':        'sales a week',
+    'ambar.stat_2_sr':     'From 4 to 10',
     'ambar.check_1':       'Name, logo and palette',
     'ambar.check_2':       'Print-ready labels',
     'ambar.check_3':       'Campaign photos, posts and reel',
@@ -301,12 +303,6 @@ window.TRANSLATIONS = {
     'cases.festivy_body':  'Digital invitations for weddings, birthdays and any celebration: ready in minutes, and guests confirm from their phone. I designed, built and launched it myself.',
     'cases.festivy_cta':   'Visit Festivy',
     'cases.festivy_alt':   'Screenshot of Festivy',
-    'cases.hb_sector':     'Hospital Británico · Healthcare',
-    'cases.hb_title':      'Rebuilding the system that pays the doctors, without stopping operations',
-    'cases.hb_body':       'An old, slow system that a key process depended on. I rebuilt it with current technology and it is now easy to maintain.',
-    'cases.gr_sector':     'Grimoldi · Retail',
-    'cases.gr_title':      'Returns were freezing the system',
-    'cases.gr_body':       'When many stores processed returns at once, everything froze. I found the root cause and now it runs faster and with fewer errors.',
 
     /* --- How we work ----------------------------------------------------- */
     'how.label':    'How we work',

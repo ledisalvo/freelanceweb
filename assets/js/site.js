@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   site.js — i18n, links desde configuración, logos, menú mobile.
+   site.js — i18n, links desde configuración, menú, precios, comparador.
    Sin dependencias. Se ejecuta en el orden: config.js → translations.js → este.
 --------------------------------------------------------------------------- */
 (function () {
@@ -198,32 +198,6 @@
     compares.forEach(syncCompare);
   }
 
-  /* --- Logos de empresas ------------------------------------------------- */
-
-  function applyCompanies() {
-    var list = document.querySelector('[data-companies]');
-    if (!list || !Array.isArray(CFG.companies)) return;
-
-    list.innerHTML = '';
-    CFG.companies.forEach(function (company) {
-      var li = document.createElement('li');
-      if (isPending(company.logo)) {
-        // Sin logo todavía: el nombre en texto, con el mismo tratamiento visual.
-        var span = document.createElement('span');
-        span.textContent = company.name;
-        li.appendChild(span);
-      } else {
-        var img = document.createElement('img');
-        img.setAttribute('src', company.logo);
-        img.setAttribute('alt', company.name);
-        img.setAttribute('loading', 'lazy');
-        img.setAttribute('class', 'companies__logo');
-        li.appendChild(img);
-      }
-      list.appendChild(li);
-    });
-  }
-
   /* --- Switch de idioma -------------------------------------------------- */
 
   function applyLangButtons() {
@@ -240,7 +214,6 @@
     applyText();
     applyLinks();
     applyImages();
-    applyCompanies();
     applyPrices();
     applyCompares();
     applyLangButtons();

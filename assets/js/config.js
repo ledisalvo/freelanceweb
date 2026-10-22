@@ -44,10 +44,10 @@ window.SITE_CONFIG = {
   // esté en PENDIENTE, su tarjeta muestra "A consultar" en lugar de "Desde …",
   // así el sitio se puede publicar sin precios definidos.
   pricing: {
-    brand: 'PENDIENTE',       // 01 · Marca lista
-    campaign: 'PENDIENTE',    // 02 · Marca + campaña
-    store: 'PENDIENTE',       // 03 · Marca + tienda
-    storeMonthly: 'PENDIENTE', // 03 · mantenimiento mensual de la tienda
+    brand: '$390.000',        // 01 · Marca lista
+    campaign: '$650.000',     // 02 · Marca + campaña (o 3 cuotas sin interés)
+    store: '$1.450.000',      // 03 · Marca + tienda (o 3 cuotas sin interés)
+    storeMonthly: '$60.000',  // 03 · mantenimiento mensual de la tienda
   },
 
   /* --- Festivy (caso destacado) ------------------------------------------ */
@@ -66,22 +66,6 @@ window.SITE_CONFIG = {
     es: 'Di Salvo - CV Español.pdf',
     en: 'Di Salvo - Resume English.pdf',
   },
-
-  /* --- Empresas (sección "Sistemas en los que trabajé") ------------------ */
-  // logo: ruta al SVG/PNG con fondo transparente. Si es null, se muestra el
-  // nombre en texto con el mismo tratamiento visual (no rompe el layout).
-  // Fuentes: Wikimedia Commons (Santander, Hospital Británico, Telecom,
-  // Telmex) y los sitios oficiales (Grimoldi, Bistrosoft).
-  // PENDIENTE: verificar que el contrato permita usar los logos de los
-  // clientes atendidos vía consultora (Grimoldi, Telmex, Monex).
-  companies: [
-    { name: 'Santander',          logo: 'images/empresas/santander.svg' },
-    { name: 'Hospital Británico', logo: 'images/empresas/hospital-britanico.svg' },
-    { name: 'Telecom',            logo: 'images/empresas/telecom.svg' },
-    { name: 'Grimoldi',           logo: 'images/empresas/grimoldi.svg' },
-    { name: 'Telmex',             logo: 'images/empresas/telmex.svg' },
-    { name: 'Bistrosoft',         logo: 'images/empresas/bistrosoft.png' },
-  ],
 
   /* --- Metadatos --------------------------------------------------------- */
   siteUrl: 'https://leodisalvo.dev/',

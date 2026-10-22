@@ -111,7 +111,7 @@
               <span class="spark" aria-hidden="true"></span> para tu negocio.
             </h1>
             <p class="lead" data-i18n="hero.lead">
-              Te ayudo a que tu negocio se vea y se encuentre en internet, y a automatizar las tareas que hoy
+              Te ayudo a que tu negocio se vea y se encuentre en internet, a automatizar las tareas que hoy
               hacés a mano. Ganás tiempo, bajás costos y te dedicás a lo que importa.
             </p>
             <div class="actions">
@@ -154,16 +154,8 @@
         </p>
         <div class="wrap">
           <h2 class="companies__label" id="companies-label" data-i18n="companies.label">
-            Más de 15 años haciendo sistemas para empresas como
+            Más de 15 años haciendo sistemas para bancos, salud y comercio
           </h2>
-          <ul class="companies__grid" data-companies>
-            <li><span>Santander</span></li>
-            <li><span>Hospital Británico</span></li>
-            <li><span>Telecom</span></li>
-            <li><span>Grimoldi</span></li>
-            <li><span>Telmex</span></li>
-            <li><span>Bistrosoft</span></li>
-          </ul>
         </div>
       </section>
 
@@ -227,7 +219,7 @@
               </p>
               <h2 class="brand__title" id="brand-title">
                 <span data-i18n="brand.title">Lanzá tu marca.</span>
-                <span class="serif-accent" data-i18n="brand.title_accent">Yo me encargo del resto.</span>
+                <span class="muted" data-i18n="brand.title_accent">Yo me encargo del resto.</span>
               </h2>
               <p class="brand__lead" data-i18n="brand.lead">
                 Tenés un producto pero te falta la imagen para venderlo. Te armo la marca, el packaging, el
@@ -235,8 +227,8 @@
               </p>
             </div>
             <ul class="brand__facts">
-              <li data-i18n="brand.fact_1">Entrega en 2 a 4 semanas</li>
-              <li data-i18n="brand.fact_2">Primera charla gratis</li>
+              <li><span class="spark spark--accent" aria-hidden="true"></span><span data-i18n="brand.fact_1">Entrega en 2 a 4 semanas</span></li>
+              <li><span class="spark spark--accent" aria-hidden="true"></span><span data-i18n="brand.fact_2">Primera charla gratis</span></li>
             </ul>
           </header>
 
@@ -264,7 +256,7 @@
             <li class="plan plan--featured">
               <div class="plan__top">
                 <span class="plan__num" aria-hidden="true">02</span>
-                <span class="badge badge--gold" data-i18n="brand.featured">El más elegido</span>
+                <span class="badge badge--accent" data-i18n="brand.featured">El más elegido</span>
               </div>
               <h3 class="plan__name" data-i18n="brand.2_name">Marca + campaña</h3>
               <p class="plan__desc" data-i18n="brand.2_desc">Todo lo anterior, más el contenido para lanzar.</p>
@@ -277,9 +269,10 @@
               <div class="plan__price" data-price="campaign">
                 <span class="plan__from" data-i18n="brand.from">Desde</span>
                 <span class="plan__amount">A consultar</span>
+                <span class="plan__note" data-i18n="brand.installments">o 3 cuotas sin interés</span>
               </div>
-              <a class="btn btn--light" data-link="whatsapp" data-wa-msg="brand.2_wa" href="#contacto" target="_blank" rel="noopener"
-                ><span data-i18n="brand.cta_featured">Quiero lanzar mi marca</span></a
+              <a class="btn btn--accent" data-link="whatsapp" data-wa-msg="brand.2_wa" href="#contacto" target="_blank" rel="noopener"
+                ><span data-i18n="brand.cta_featured">Quiero lanzar mi marca</span> <span class="arrow" aria-hidden="true"></span></a
               >
             </li>
             <li class="plan">
@@ -297,6 +290,7 @@
               <div class="plan__price" data-price="store">
                 <span class="plan__from" data-i18n="brand.from">Desde</span>
                 <span class="plan__amount">A consultar</span>
+                <span class="plan__note" data-i18n="brand.installments">o 3 cuotas sin interés</span>
                 <span class="plan__monthly" data-price-monthly="storeMonthly" hidden></span>
               </div>
               <a class="btn btn--outline" data-link="whatsapp" data-wa-msg="brand.3_wa" href="#contacto" target="_blank" rel="noopener" data-i18n-aria-label="brand.3_aria" aria-label="Consultar por el plan Marca + tienda"
@@ -386,7 +380,7 @@
 
             <div class="feature__body">
               <div class="badges">
-                <span class="badge badge--gold" data-i18n="ambar.tag_case">Caso de estudio</span>
+                <span class="badge badge--alt" data-i18n="ambar.tag_case">Caso de estudio</span>
                 <span class="badge badge--outline" data-i18n="ambar.tag_meta">Marca propia · 2 semanas</span>
               </div>
               <h3 class="feature__title">Ámbar</h3>
@@ -398,6 +392,19 @@
                 campaña y tienda online, y lo puse a vender en dos semanas. Es lo mismo que puedo hacer por tu
                 marca.
               </p>
+              <ul class="stats">
+                <li>
+                  <span class="stats__value">80</span>
+                  <span class="stats__label" data-i18n="ambar.stat_1">seguidores orgánicos en 2 semanas, sin publicidad paga</span>
+                </li>
+                <li>
+                  <span class="stats__value"
+                    ><span aria-hidden="true">4 → 10</span
+                    ><span class="sr-only" data-i18n="ambar.stat_2_sr">De 4 a 10</span></span
+                  >
+                  <span class="stats__label" data-i18n="ambar.stat_2">ventas por semana</span>
+                </li>
+              </ul>
               <ul class="checks">
                 <li><span class="check" aria-hidden="true"></span><span data-i18n="ambar.check_1">Nombre, logo y paleta</span></li>
                 <li><span class="check" aria-hidden="true"></span><span data-i18n="ambar.check_2">Etiquetas listas para imprenta</span></li>
@@ -425,7 +432,7 @@
                 </li>
               </ul>
               <div class="actions">
-                <a class="btn btn--light" data-link="whatsapp" data-wa-msg="ambar.wa_message" href="#contacto" target="_blank" rel="noopener"
+                <a class="btn btn--accent" data-link="whatsapp" data-wa-msg="ambar.wa_message" href="#contacto" target="_blank" rel="noopener"
                   ><span data-i18n="ambar.cta">Quiero esto para mi marca</span> <span class="arrow" aria-hidden="true"></span
                 ></a>
                 <a class="btn btn--outline" data-link="ambar" href="https://www.ambarperfumes.com.ar/" target="_blank" rel="noopener"
@@ -458,27 +465,6 @@
               data-i18n-alt="cases.festivy_alt"
             />
           </article>
-
-          <div class="cases">
-            <article class="card case">
-              <p class="case__sector" data-i18n="cases.hb_sector">Hospital Británico · Salud</p>
-              <h3 class="card__title" data-i18n="cases.hb_title">
-                Renovar el sistema que les paga a los médicos, sin frenar la operación
-              </h3>
-              <p data-i18n="cases.hb_body">
-                Un sistema viejo y lento, del que dependía un proceso clave. Lo rehíce con tecnología actual y hoy
-                es fácil de mantener.
-              </p>
-            </article>
-            <article class="card case">
-              <p class="case__sector" data-i18n="cases.gr_sector">Grimoldi · Comercio</p>
-              <h3 class="card__title" data-i18n="cases.gr_title">Las devoluciones trababan el sistema</h3>
-              <p data-i18n="cases.gr_body">
-                Cuando muchas sucursales devolvían a la vez, todo se frenaba. Encontré el origen y ahora funciona
-                más rápido y con menos errores.
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 
