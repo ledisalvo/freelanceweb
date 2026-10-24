@@ -27,9 +27,10 @@ window.SITE_CONFIG = {
   linkedin: 'https://www.linkedin.com/in/leonardo-di-salvo/',
   github: 'https://github.com/ledisalvo',
 
-  /* --- Ámbar (caso de estudio destacado) --------------------------------- */
+  /* --- Ámbar (tarjeta en Trabajos + página casos/ambar/) ------------------ */
   ambar: {
     url: 'https://www.ambarperfumes.com.ar/',
+    card: 'images/casos/ambar/tarjeta.webp',   // tarjeta de Trabajos (antes | después)
     // Antes y después: misma toma y mismo encuadre (960x1200), así el
     // comparador los superpone sin que el frasco salte.
     before: 'images/casos/ambar/antes.webp',
@@ -50,11 +51,11 @@ window.SITE_CONFIG = {
     storeMonthly: '$60.000',  // 03 · mantenimiento mensual de la tienda
   },
 
-  /* --- Festivy (caso destacado) ------------------------------------------ */
+  /* --- Festivy (tarjeta en Trabajos + página casos/festivy/) -------------- */
   festivy: {
     url: 'https://festivy.app/',
     // Captura de la landing (1440x900 @2x, reducida a 1600x1000).
-    image: 'images/casos/festivy.webp',
+    image: 'images/casos/festivy/tarjeta.webp',
   },
 
   /* --- Foto del hero ----------------------------------------------------- */

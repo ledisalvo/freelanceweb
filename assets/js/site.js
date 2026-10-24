@@ -12,6 +12,16 @@
 
   var lang = readLang();
 
+  // Las páginas de casos viven en subcarpetas (/casos/ambar/): <html data-base="../../">
+  // hace que las rutas relativas de config.js sigan funcionando, y
+  // <html data-meta="meta.ambar"> elige su título y descripción.
+  var BASE = document.documentElement.getAttribute('data-base') || '';
+  var META = document.documentElement.getAttribute('data-meta') || 'meta';
+
+  function asset(path) {
+    return /^(https?:)?\/\//.test(path) || path.charAt(0) === '/' ? path : BASE + path;
+  }
+
   function readLang() {
     var stored = null;
     try {
@@ -39,8 +49,8 @@
   }
 
   function applyMeta() {
-    var title = t('meta.title');
-    var desc = t('meta.description');
+    var title = t(META + '.title');
+    var desc = t(META + '.description');
 
     document.title = title;
     setMeta('meta[name="description"]', desc);
@@ -94,7 +104,8 @@
       case 'ambar':
         return CFG.ambar && CFG.ambar.url;
       case 'cv':
-        return (CFG.cv && CFG.cv[lang]) || (CFG.cv && CFG.cv[DEFAULT_LANG]);
+        var cv = (CFG.cv && CFG.cv[lang]) || (CFG.cv && CFG.cv[DEFAULT_LANG]);
+        return isPending(cv) ? cv : asset(cv);
       default:
         return null;
     }
@@ -132,6 +143,7 @@
     var map = {
       hero: CFG.heroImage,
       festivy: CFG.festivy && CFG.festivy.image,
+      ambar_card: CFG.ambar && CFG.ambar.card,
       ambar_before: CFG.ambar && CFG.ambar.before,
       ambar_after: CFG.ambar && CFG.ambar.after,
       ambar_logo: CFG.ambar && CFG.ambar.logo,
@@ -140,13 +152,15 @@
     };
 
     Object.keys(map).forEach(function (key) {
-      var el = document.querySelector('[data-img="' + key + '"]');
-      if (!el || isPending(map[key])) return;
-      el.setAttribute('src', map[key]);
-      // Los placeholders traen medidas propias; al reemplazarlos dejamos que
-      // el CSS gobierne la proporción.
-      el.removeAttribute('width');
-      el.removeAttribute('height');
+      if (isPending(map[key])) return;
+      document.querySelectorAll('[data-img="' + key + '"]').forEach(function (el) {
+        if (el.getAttribute('src') === asset(map[key])) return;
+        el.setAttribute('src', asset(map[key]));
+        // Los placeholders traen medidas propias; al reemplazarlos dejamos que
+        // el CSS gobierne la proporción.
+        el.removeAttribute('width');
+        el.removeAttribute('height');
+      });
     });
   }
 

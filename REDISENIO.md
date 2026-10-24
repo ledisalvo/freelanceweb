@@ -39,7 +39,9 @@ raíz pero la página no los enlaza.
 ## Estructura
 
 ```
-index.html                     una sola página, HTML semántico, copy ES inline
+index.html                     la home, HTML semántico, copy ES inline
+casos/ambar/index.html         página del caso Ámbar (leodisalvo.dev/casos/ambar/)
+casos/festivy/index.html       página del caso Festivy (leodisalvo.dev/casos/festivy/)
 assets/css/site.css            sistema visual (tokens en :root) + componentes
 assets/css/fonts.css           @font-face de Manrope (self-hosted)
 assets/fonts/manrope-*.woff2   Manrope variable, subsets latin y latin-ext
@@ -48,14 +50,34 @@ assets/js/config.js            ← TODAS las URLs y datos externos viven acá
 assets/js/translations.js      ← TODO el copy ES/EN vive acá
 assets/js/site.js              i18n, links, logos, menú, agenda Cal.com
 images/leo-bn.webp             retrato del hero (recorte B/N, fondo transparente)
-images/casos/festivy.webp      captura de Festivy
-images/casos/ambar/           caso Ámbar: antes, después, logo, etiqueta, campaña
+images/casos/festivy/          tarjeta (portada), invitación en celular, capturas del panel
+images/casos/ambar/            tarjeta (antes | después), comparador, identidad,
+                               colección y capturas de la tienda
 images/og-v4.png               imagen Open Graph
 ```
 
 Orden de secciones: Nav → Hero → Experiencia (una línea de texto) → Qué hago →
 Lanzá tu marca → Ideas por rubro → Trabajos (Ámbar, Festivy) → Cómo trabajamos →
 Sobre mí → Contacto → Footer.
+
+En Trabajos, Ámbar y Festivy son dos tarjetas con el mismo formato (badges,
+título, texto, imagen) y los mismos dos botones: **Ver el caso completo**
+(lima, lleva a su página) y el link al sitio real ("Ver la tienda" /
+"Ver Festivy"). El detalle vive en las páginas de caso, que comparten nav,
+footer, CSS y JS con la home:
+
+- **Ámbar**: portada con datos del proyecto → comparador antes/después →
+  resultados → paso a paso → piezas de la marca → colección → tienda →
+  contacto → link a Festivy.
+- **Festivy**: portada con captura en computadora y celular → el problema →
+  qué hace (6 funciones) → capturas del panel (datos de ejemplo) → números →
+  cómo lo hice → para tu negocio → contacto → link a Ámbar.
+
+Las páginas de caso viven en subcarpetas: `<html data-base="../../">` hace que
+las rutas de `config.js` funcionen igual y `<html data-meta="meta.ambar">`
+elige su título y descripción en `translations.js`. Todo dato de Festivy sale
+del producto real (repo y festivy.app); las capturas del panel son las de
+la vista previa del plan PRO, con datos de ejemplo.
 
 Sin logos de empresas ni casos de clientes de cuando trabajaba en relación de
 dependencia: la experiencia se cuenta en una frase ("bancos, salud y
@@ -115,7 +137,7 @@ mantenimiento. Los planes 2 y 3 muestran además "o 3 cuotas sin interés"
 `PENDIENTE`, su tarjeta dice **"A consultar"** y esconde el "Desde", las cuotas
 y el mantenimiento.
 
-Los botones de cada plan y el "Quiero esto para mi marca" de Ámbar abren
+Los botones de cada plan y los CTA de las páginas de caso abren
 WhatsApp con su propio mensaje: el atributo `data-wa-msg` nombra la clave de
 traducción del texto precargado.
 
@@ -137,7 +159,7 @@ ninguno.
 
 ### Resultados de Ámbar
 
-Debajo del texto del caso, en recuadros (`.stats`): **80** seguidores orgánicos
+En la página del caso, en recuadros (`.stats`): **80** seguidores orgánicos
 en 2 semanas sin publicidad paga, y ventas de **4 → 10** por semana. La flecha
 es visual; el lector de pantalla oye "De 4 a 10" (`.sr-only`).
 
@@ -181,23 +203,26 @@ está bloqueado, el sitio igual funciona en la visita actual).
 Verificado en Chromium headless sobre el sitio servido localmente (rediseño
 oscuro, octubre 2026):
 
-- render completo a 1440 px y a 390 px; sin scroll horizontal en 390 px;
+- render completo a 1440 px y a 390 px de la home y las dos páginas de caso;
+  sin scroll horizontal en 390 px;
 - menú: abre (`aria-expanded="true"`), muestra el panel y cierra con Escape;
 - switch ES/EN: cambia titular y mensaje de WhatsApp;
 - links de WhatsApp y Cal.com (los dos botones) resueltos desde la config
   (el mail ya no se muestra en la página); ningún placeholder pendiente;
 - el botón de agenda abre el modal de Cal.com;
-- comparador de Ámbar: nombre accesible desde el label, 20 flechas a la
-  derecha llevan el valor de 50 a 70, recortan la foto al 70 % y actualizan
-  el `aria-valuetext` (también en EN);
-- cada CTA de planes y de Ámbar precarga su propio mensaje de WhatsApp;
-  "Ver el caso completo" abre ambarperfumes.com.ar en otra pestaña;
+- comparador de Ámbar (en su página): nombre accesible desde el label; al
+  llevarlo a 70 recorta la foto al 70 % y el `aria-valuetext` dice
+  "Mostrando 70 % del después";
+- el botón de agenda de la página de Festivy también abre el modal de Cal.com;
+- cada CTA de planes y de las páginas de caso precarga su propio mensaje de
+  WhatsApp (también en EN); "Ver el caso completo" lleva a `casos/ambar/` y
+  `casos/festivy/`, y "Ver la tienda" / "Ver Festivy" abren el sitio real;
 - precios: "Desde $390.000", "Desde $650.000 / o 3 cuotas sin interés" y
   "Desde $1.450.000 / o 3 cuotas sin interés / + $60.000 por mes de
   mantenimiento" (y su versión en EN);
 - sin logos ni casos de Hospital Británico y Grimoldi en el DOM; los dos
   resultados de Ámbar visibles;
-- las 134 claves de texto usadas (HTML y JS) existen en ES y EN.
+- las 234 claves de texto usadas (las tres páginas y JS) existen en ES y EN.
 
 Lighthouse no se volvió a medir después del rediseño. Para hacerlo:
 
